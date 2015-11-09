@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_get_subjects" value="name:sub_id;datatype:int,name:sub_name;datatype:string,name:sub_term_id;datatype:int,name:sub_hour;datatype:int,name:sub_code;datatype:string,name:sub_description;datatype:blob,name:sub_type;datatype:int,name:sub_created_by;datatype:int,name:sub_created_date;datatype:timestamp" />
+</info>

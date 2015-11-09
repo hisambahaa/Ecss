@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_get_prem_categ" value="name:categ_id;datatype:int,name:categ_name;datatype:string" />
+</info>

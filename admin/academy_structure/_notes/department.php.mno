@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_get_department" value="name:dep_id;datatype:int,name:dep_name;datatype:string,name:dep_term_id;datatype:int,name:dep_created_by;datatype:int,name:dep_created_date;datatype:timestamp" />
+</info>

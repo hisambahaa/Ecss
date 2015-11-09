@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_get_prem_categ" value="name:categ_id;datatype:int,name:categ_name;datatype:string" />
+	<infoitem key="UD_get_roles" value="name:role_id;datatype:int,name:role_name;datatype:string,name:role_created_date;datatype:timestamp,name:role_created_by;datatype:int" />
+	<infoitem key="UD_get_prem" value="name:prem_id;datatype:int,name:prem_name;datatype:string,name:prem_url;datatype:string,name:prem_categ_id;datatype:int,name:prem_role_ids;datatype:string,name:prem_created_date;datatype:timestamp,name:prem_created_by;datatype:int" />
+</info>

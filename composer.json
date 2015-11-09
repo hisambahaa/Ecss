@@ -1,0 +1,12 @@
+{
+    "name": "haitham.hamdy/dares",
+    "authors": [
+        {
+            "name": "ecss",
+            "email": "haitham@css.edu.om"
+        }
+    ],
+    "require": {
+        "league/event": "^2.1"
+    }
+}

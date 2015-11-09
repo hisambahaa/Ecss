@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_get_role" value="name:role_id;datatype:int,name:role_name;datatype:string,name:role_created_date;datatype:timestamp,name:role_created_by;datatype:int" />
+	<infoitem key="UD_get_all_users" value="name:user_id;datatype:int,name:user_name;datatype:string,name:user_pwd;datatype:string,name:user_role_ids;datatype:string,name:user_fullname;datatype:string,name:user_email;datatype:string,name:user_mobile;datatype:string,name:user_photo;datatype:string,name:user_state;datatype:int,name:user_last_login;datatype:datetime,name:user_created_date;datatype:timestamp,name:user_created_by;datatype:int" />
+</info>

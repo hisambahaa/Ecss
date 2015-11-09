@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_get_term" value="name:term_id;datatype:int,name:term_name;datatype:string,name:term_year_id;datatype:int,name:term_created_by;datatype:int,name:term_created_date;datatype:timestamp" />
+</info>

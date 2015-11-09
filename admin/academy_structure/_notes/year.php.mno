@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_get_year" value="name:year_id;datatype:int,name:year_name;datatype:string,name:year_faculty_id;datatype:int,name:year_created_by;datatype:int,name:year_created_date;datatype:timestamp" />
+</info>
