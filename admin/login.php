@@ -1,7 +1,7 @@
 <?php 
 require_once('../Connections/dares_conn.php');
 require_once('../Connections/config.php');
-//require_once("../Connections/composer.php");
+require_once("../Connections/composer.php");
 
 if (!function_exists("GetSQLValueString")) {
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
