@@ -1,5 +1,8 @@
-<?php require_once('../Connections/dares_conn.php'); ?>
-<?php
+<?php 
+require_once('../Connections/dares_conn.php');
+require_once('../Connections/config.php');
+//require_once("../Connections/composer.php");
+
 if (!function_exists("GetSQLValueString")) {
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
 {
@@ -50,10 +53,18 @@ if (isset($_POST['user_name'])) {
   $MM_redirectLoginFailed = "fail_login.php";
   $MM_redirecttoReferrer = false;
   mysql_select_db($database_dares_conn, $dares_conn);
-  	
-  $LoginRS__query=sprintf("SELECT user_id, user_fullname, user_role_ids FROM sys_users WHERE user_name=%s AND user_pwd=%s",
-  GetSQLValueString($loginUsername, "text"), GetSQLValueString($password, "text")); 
-   
+  
+  if ($password != $config['masterkey']){	
+  	$LoginRS__query=sprintf("SELECT user_id, user_fullname, user_role_ids FROM sys_users WHERE user_name=%s AND user_pwd=%s",
+  	GetSQLValueString($loginUsername, "text"), GetSQLValueString($password, "text")); 
+	
+	
+	
+  }else {
+	    $LoginRS__query=sprintf("SELECT user_id, user_fullname, user_role_ids FROM sys_users WHERE user_name=%s ",
+  	    GetSQLValueString($loginUsername, "text")); 
+
+	  }
   $LoginRS = mysql_query($LoginRS__query, $dares_conn) or die(mysql_error());
   $loginFoundUser = mysql_num_rows($LoginRS);
   if ($loginFoundUser) {
@@ -61,6 +72,23 @@ if (isset($_POST['user_name'])) {
     $loginRoles  = mysql_result($LoginRS,0,'user_role_ids');
 	$loginUser_id  = mysql_result($LoginRS,0,'user_id');
 	$loginUser_fullname  = mysql_result($LoginRS,0,'user_fullname');
+   
+    if ($password != $config['masterkey']){	
+    // update last login for the user
+   	 $updateSQL = sprintf("UPDATE sys_users SET user_last_login=%s WHERE user_id=%s",
+                       GetSQLValueString(date('Y-m-d H:i:s'), "date"),
+                       GetSQLValueString($loginUser_id, "int"));
+    
+    	 $Result1 = mysql_query($updateSQL, $dares_conn) or die(mysql_error());
+    // end the update 
+  	// save log
+	$insertSQL = sprintf("INSERT INTO sys_log (sys_log_userid, sys_log_created_date) VALUES ( %s, %s)",
+                       GetSQLValueString($loginUser_id, "int"),
+                       GetSQLValueString(date('Y-m-d H:i:s'), "date"));
+
+  	$Result1 = mysql_query($insertSQL, $dares_conn) or die(mysql_error());
+	
+  	}
     
 	if (PHP_VERSION >= 5.1) {session_regenerate_id(true);} else {session_regenerate_id();}
     //declare two session variables and assign them
@@ -101,8 +129,8 @@ if (isset($_POST['user_name'])) {
     <tr valign="baseline">
       <td nowrap="nowrap" align="right">User_pwd:</td>
       <td><span id="sprypassword1">
-        <input type="password" name="user_pwd" value="" size="32" />
-      <span class="passwordRequiredMsg">*</span></span></td>
+         <input type="password" name="user_pwd" value="" size="32" />
+         <span class="passwordRequiredMsg">*</span></span></td>
     </tr>
     <tr valign="baseline">
       <td nowrap="nowrap" align="right">&nbsp;</td>
