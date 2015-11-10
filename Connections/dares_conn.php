@@ -2,7 +2,7 @@
 # FileName="Connection_php_mysql.htm"
 # Type="MYSQL"
 # HTTP="true"
-$hostname_dares_conn = "localhost";
+$hostname_dares_conn = "10.80.32.224";
 $database_dares_conn = "dares";
 $username_dares_conn = "root";
 $password_dares_conn = "OmanIis_2015";
