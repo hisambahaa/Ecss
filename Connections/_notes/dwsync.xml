@@ -4,4 +4,8 @@
 <file name="perm.php" server="C:/wamp/www/dares/" local="130903238730894679" remote="130903238730000000" Dst="0" />
 <file name="composer.php" server="C:/wamp/www/dares/" local="130915307850143428" remote="130915307850000000" Dst="0" />
 <file name="config.php" server="C:/wamp/www/dares/" local="130915310640000000" remote="130915310640000000" Dst="0" />
+<file name="dares_conn.php" server="10.80.32.224" local="130916097600000000" remote="130916097600000000" Dst="0" />
+<file name="config.php" server="10.80.32.224" local="130916116538723829" remote="130916116200000000" Dst="0" />
+<file name="composer.php" server="10.80.32.224" local="130916095800000000" remote="130916095800000000" Dst="0" />
+<file name="perm.php" server="10.80.32.224" local="130916095800000000" remote="130916095800000000" Dst="0" />
 </dwsync>
