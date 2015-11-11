@@ -1,7 +1,8 @@
 <?php 
+require_once __DIR__ .'/../Connections/config.php';
 // the page title
 $pageTitle='بلانكك';
-include('template/includes/header.php'); ?>
+require_once $config['base_url'].'/admin/template/includes/header.php'; ?>
   <!-- page content -->
             <div class="right_col" role="main">
                     <div class="row">
@@ -17,4 +18,4 @@ include('template/includes/header.php'); ?>
                     </div>
                 </div>
                 
-<?php include('template/includes/footer.php'); ?>
+<?php require_once $config['base_url'].'/admin/template/includes/footer.php'; ?>

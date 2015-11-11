@@ -1,5 +1,5 @@
 <?php session_start();
-require_once __DIR__ .'/../../../Connections/config.php';
+
  ?>
 <!DOCTYPE html>
 <html lang="ar">
@@ -15,18 +15,18 @@ require_once __DIR__ .'/../../../Connections/config.php';
 
     <!-- Bootstrap core CSS -->
 
-    <link href="<?php echo $config['base_url'].'admin/template/';?>css/bootstrap.min.css" rel="stylesheet"> 
-    <link href="<?php echo $config['base_url'].'admin/template/';?>css/bootstrap-rtl.min.css" rel="stylesheet">
+    <link href="<?php echo $config['http_base_url'].'admin/template/';?>css/bootstrap.min.css" rel="stylesheet"> 
+    <link href="<?php echo $config['http_base_url'].'admin/template/';?>css/bootstrap-rtl.min.css" rel="stylesheet">
 
-    <link href="<?php echo $config['base_url'].'admin/template/';?>fonts/css/font-awesome.min.css" rel="stylesheet">
-    <link href="<?php echo $config['base_url'].'admin/template/';?>css/animate.min.css" rel="stylesheet">
+    <link href="<?php echo $config['http_base_url'].'admin/template/';?>fonts/css/font-awesome.min.css" rel="stylesheet">
+    <link href="<?php echo $config['http_base_url'].'admin/template/';?>css/animate.min.css" rel="stylesheet">
 
     <!-- Custom styling plus plugins -->
-    <link href="<?php echo $config['base_url'].'admin/template/';?>css/custom.css" rel="stylesheet">
-    <link href="<?php echo $config['base_url'].'admin/template/';?>css/icheck/flat/green.css" rel="stylesheet">
+    <link href="<?php echo $config['http_base_url'].'admin/template/';?>css/custom.css" rel="stylesheet">
+    <link href="<?php echo $config['http_base_url'].'admin/template/';?>css/icheck/flat/green.css" rel="stylesheet">
 
 
-    <script src="<?php echo $config['base_url'].'admin/template/';?>js/jquery.min.js"></script>
+    <script src="<?php echo $config['http_base_url'].'admin/template/';?>js/jquery.min.js"></script>
 
     <!--[if lt IE 9]>
         <script src="../assets/js/ie8-responsive-file-warning.js"></script>
@@ -62,7 +62,7 @@ require_once __DIR__ .'/../../../Connections/config.php';
                             <?php if(!empty($_SESSION['User_photo'])): ?>
                                 <img src="images/img.jpg" alt="<?php echo $_SESSION['User_name'] ?>" class="img-circle profile_img">
                             <?php else: ?>
-                                <img src="<?php echo $config['base_url']; ?>admin/template/images/img.jpg" alt="<?php echo $_SESSION['User_name'] ?>" class="img-circle profile_img">
+                                <img src="<?php echo $config['http_base_url']; ?>admin/template/images/img.jpg" alt="<?php echo $_SESSION['User_name'] ?>" class="img-circle profile_img">
                             <?php endif; ?>
                         </div>
                         <div class="profile_info">
