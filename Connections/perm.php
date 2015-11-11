@@ -29,8 +29,11 @@ function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDe
   return $theValue;
 }
 }
+$url = str_replace('/'.$config['project_folder'],'',$_SERVER['PHP_SELF']);
+
 mysql_select_db($database_dares_conn, $dares_conn);
-$query_get_prem_by_self_page = sprintf("SELECT prem_role_ids FROM sys_permission WHERE prem_url = %s",GetSQLValueString($_SERVER['PHP_SELF'],"text"));
+$query_get_prem_by_self_page = sprintf("SELECT prem_role_ids FROM sys_permission WHERE prem_url = %s",
+GetSQLValueString($url,"text"));
 $get_prem_by_self_page = mysql_query($query_get_prem_by_self_page, $dares_conn) or die(mysql_error());
 $row_get_prem_by_self_page = mysql_fetch_assoc($get_prem_by_self_page);
 $totalRows_get_prem_by_self_page = mysql_num_rows($get_prem_by_self_page);
@@ -80,4 +83,5 @@ if (!((isset($_SESSION['User_name'])) && (isAuthorized("",$MM_authorizedUsers, $
   header("Location: ". $MM_restrictGoTo); 
   exit;
 }
+
 ?>
