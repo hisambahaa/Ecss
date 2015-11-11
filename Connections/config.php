@@ -1,12 +1,13 @@
 <?php 
 
-$base_url = explode('/',$_SERVER['REQUEST_URI']);
-$template_dir = $_SERVER['DOCUMENT_ROOT']."/".$base_url[1];
+$project_folder 	= 'Ecss';
 
-$mas = "ecss";
-$config = array(
+$template_dir 		= $_SERVER['DOCUMENT_ROOT']."/".$project_folder;
+
+$config 			= array(
 	"masterkey"		=>"ecss",
-	"http_base_url"	=> "http://".$_SERVER['HTTP_HOST']."/".$base_url[1]."/",
+	"project_folder"=>$project_folder,
+	"http_base_url"	=> "http://".$_SERVER['HTTP_HOST']."/".$project_folder."/",
 	"base_url"		=>$template_dir
 );
 ?>
