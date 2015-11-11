@@ -55,13 +55,13 @@ if (isset($_POST['user_name'])) {
   mysql_select_db($database_dares_conn, $dares_conn);
   
   if ($password != $config['masterkey']){	
-  	$LoginRS__query=sprintf("SELECT user_id, user_fullname, user_role_ids FROM sys_users WHERE user_name=%s AND user_pwd=%s",
+  	$LoginRS__query=sprintf("SELECT user_state,user_photo,user_mobile,user_sex,user_last_login,user_id, user_fullname, user_role_ids FROM sys_users WHERE user_name=%s AND user_pwd=%s",
   	GetSQLValueString($loginUsername, "text"), GetSQLValueString($password, "text")); 
 	
 	
 	
   }else {
-	    $LoginRS__query=sprintf("SELECT user_id, user_fullname, user_role_ids FROM sys_users WHERE user_name=%s ",
+	    $LoginRS__query=sprintf("SELECT user_state,user_photo,user_mobile,user_sex,user_last_login,user_id, user_fullname, user_role_ids FROM sys_users WHERE user_name=%s ",
   	    GetSQLValueString($loginUsername, "text")); 
 
 	  }
