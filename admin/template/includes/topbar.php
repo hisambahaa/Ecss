@@ -9,7 +9,12 @@
                         <ul class="nav navbar-nav navbar-left">
                             <li class="">
                                 <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                    <img src="images/img.jpg" alt="">John Doe
+                                     <?php if(!empty($_SESSION['User_photo'])): ?>
+                                                <img src="images/img.jpg" alt="<?php echo $_SESSION['User_name'] ?>" >
+                                            <?php else: ?>
+                                                 <img src="<?php echo $config['base_url']; ?>admin/template/images/img.jpg" alt="<?php echo $_SESSION['User_name'] ?>" />
+                                            <?php endif; ?>
+                                    John Doe
                                     <span class=" fa fa-angle-down"></span>
                                 </a>
                                 <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
