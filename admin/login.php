@@ -1,7 +1,7 @@
 <?php 
 require_once('../Connections/dares_conn.php');
 require_once('../Connections/config.php');
-require_once("../Connections/composer.php");
+//require_once("../Connections/composer.php");
 
 if (!function_exists("GetSQLValueString")) {
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
@@ -106,41 +106,79 @@ if (isset($_POST['user_name'])) {
   }
 }
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+
+<body>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>نظام التعليم عن بعد |</title>
+    
 <script src="../SpryAssets/SpryValidationTextField.js" type="text/javascript"></script>
 <script src="../SpryAssets/SpryValidationPassword.js" type="text/javascript"></script>
 <link href="../SpryAssets/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
 <link href="../SpryAssets/SpryValidationPassword.css" rel="stylesheet" type="text/css" />
-</head>
 
-<body>
+    <!-- Bootstrap core CSS -->
+    <link href="template/css/bootstrap.min.css" rel="stylesheet"> <link href="css/bootstrap-rtl.min.css" rel="stylesheet">
+
+    <link href="template/fonts/css/font-awesome.min.css" rel="stylesheet">
+    <link href="template/css/animate.min.css" rel="stylesheet">
+
+    <!-- Custom styling plus plugins -->
+    <link href="template/css/custom.css" rel="stylesheet">
+    <link href="template/css/icheck/flat/green.css" rel="stylesheet">
+
+
+    <script src="template/js/jquery.min.js"></script>
+
+
+
+<body style="background:#F7F7F7;">
+    
+    <div class="">
+        <a class="hiddenanchor" id="toregister"></a>
+        <a class="hiddenanchor" id="tologin"></a>
+
+        <div id="wrapper">
+            <div id="login" class="animate form">
+                <section class="login_content">
 <form action="<?php echo $loginFormAction; ?>" method="POST" name="form1" id="form1">
+                   <h1>تسجيل الدخول لنظام دارس</h1>
   <table align="center">
     <tr valign="baseline">
-      <td nowrap="nowrap" align="right">User_name:</td>
       <td><span id="sprytextfield1">
-        <input type="text" name="user_name" value="" size="32" />
+        <input type="text" name="user_name" value="" size="32" class="form-control" placeholder="اسم المستخدم"/>
       <span class="textfieldRequiredMsg">*</span></span></td>
     </tr>
     <tr valign="baseline">
-      <td nowrap="nowrap" align="right">User_pwd:</td>
       <td><span id="sprypassword1">
-         <input type="password" name="user_pwd" value="" size="32" />
+         <input type="password" name="user_pwd" value="" size="32" class="form-control" placeholder="كلمة المرور"/>
          <span class="passwordRequiredMsg">*</span></span></td>
     </tr>
     <tr valign="baseline">
-      <td nowrap="nowrap" align="right">&nbsp;</td>
-      <td><input type="submit" value="Login" /></td>
+      <td align="center"><input type="submit" value="تسجيل دخول" class="btn btn-default submit"/></td>
     </tr>
   </table>
 </form>
+                    <!-- form -->
+                </section>
+                <!-- content -->
+            </div>
+ 
+        </div>
+    </div>
+
 <script type="text/javascript">
 var sprytextfield1 = new Spry.Widget.ValidationTextField("sprytextfield1");
 var sprypassword1 = new Spry.Widget.ValidationPassword("sprypassword1");
 </script>
 </body>
+
 </html>
