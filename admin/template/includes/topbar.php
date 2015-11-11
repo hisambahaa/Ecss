@@ -12,7 +12,7 @@
                                      <?php if(!empty($_SESSION['User_photo'])): ?>
                                                 <img src="images/img.jpg" alt="<?php echo $_SESSION['User_name'] ?>" >
                                             <?php else: ?>
-                                                 <img src="<?php echo $config['base_url']; ?>admin/template/images/img.jpg" alt="<?php echo $_SESSION['User_name'] ?>" />
+                                                 <img src="<?php echo $config['http_base_url']; ?>admin/template/images/img.jpg" alt="<?php echo $_SESSION['User_name'] ?>" />
                                             <?php endif; ?>
                                     John Doe
                                     <span class=" fa fa-angle-down"></span>
