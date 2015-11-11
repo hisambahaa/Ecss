@@ -1,5 +1,6 @@
+<?php require_once __DIR__ . "/../../Connections/config.php"; ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -12,26 +13,26 @@
 
     <!-- Bootstrap core CSS -->
 
-    <link href="css/bootstrap.min.css" rel="stylesheet"> <link href="css/bootstrap-rtl.min.css" rel="stylesheet">
+    <link href="<?php echo $config['http_base_url'] ?>admin/template/css/bootstrap.min.css" rel="stylesheet"> <link href="<?php echo $config['http_base_url'] ?>admin/template/css/bootstrap-rtl.min.css" rel="stylesheet">
 
-    <link href="fonts/css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="<?php echo $config['http_base_url'] ?>admin/template/fonts/css/font-awesome.min.css" rel="stylesheet">
+    <link href="<?php echo $config['http_base_url'] ?>admin/template/css/animate.min.css" rel="stylesheet">
 
     <!-- Custom styling plus plugins -->
-    <link href="css/custom.css" rel="stylesheet">
-    <link href="css/icheck/flat/green.css" rel="stylesheet">
-    <link href="css/datatables/tools/css/dataTables.tableTools.css" rel="stylesheet">
+    <link href="<?php echo $config['http_base_url'] ?>admin/template/css/custom.css" rel="stylesheet">
+    <link href="<?php echo $config['http_base_url'] ?>admin/template/css/icheck/flat/green.css" rel="stylesheet">
+    <link href="<?php echo $config['http_base_url'] ?>admin/template/css/datatables/tools/css/dataTables.tableTools.css" rel="stylesheet">
 
-    <script src="js/jquery.min.js"></script>
+    <script src="<?php echo $config['http_base_url'] ?>admin/template/js/jquery.min.js"></script>
 
     <!--[if lt IE 9]>
-        <script src="../assets/js/ie8-responsive-file-warning.js"></script>
+        <script src="<?php echo $config['http_base_url'] ?>admin/template/../assets/js/ie8-responsive-file-warning.js"></script>
         <![endif]-->
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+          <script src="<?php echo $config['http_base_url'] ?>admin/template/https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="<?php echo $config['http_base_url'] ?>admin/template/https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
 
 </head>
@@ -48,14 +49,14 @@
                 <div class="left_col scroll-view">
 
                     <div class="navbar nav_title" style="border: 0;">
-                        <a href="index.php" class="site_title"><i class="fa fa-paw"></i> <span>Gentellela Alela!</span></a>
+                        <a href="<?php echo $config['http_base_url'] ?>admin/template/index.php" class="site_title"><i class="fa fa-paw"></i> <span>Gentellela Alela!</span></a>
                     </div>
                     <div class="clearfix"></div>
 
                     <!-- menu prile quick info -->
                     <div class="profile">
                         <div class="profile_pic">
-                            <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+                            <img src="<?php echo $config['http_base_url'] ?>admin/template/images/img.jpg" alt="..." class="img-circle profile_img">
                         </div>
                         <div class="profile_info">
                             <span>Welcome,</span>
@@ -100,29 +101,29 @@
 
                         <ul class="nav navbar-nav navbar-left">
                             <li class="">
-                                <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                    <img src="images/img.jpg" alt="">John Doe
+                                <a href="<?php echo $config['http_base_url'] ?>admin/template/javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                    <img src="<?php echo $config['http_base_url'] ?>admin/template/images/img.jpg" alt="">John Doe
                                     <span class=" fa fa-angle-down"></span>
                                 </a>
                                 <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
-                                    <li><a href="javascript:;">  Profile</a>
+                                    <li><a href="<?php echo $config['http_base_url'] ?>admin/template/javascript:;">  Profile</a>
                                     </li>
                                     <li>
-                                        <a href="javascript:;">
+                                        <a href="<?php echo $config['http_base_url'] ?>admin/template/javascript:;">
                                             <span class="badge bg-red pull-right">50%</span>
                                             <span>Settings</span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="javascript:;">Help</a>
+                                        <a href="<?php echo $config['http_base_url'] ?>admin/template/javascript:;">Help</a>
                                     </li>
-                                    <li><a href="login.php"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                                    <li><a href="<?php echo $config['http_base_url'] ?>admin/template/login.php"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                                     </li>
                                 </ul>
                             </li>
 
                             <li role="presentation" class="dropdown">
-                                <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+                                <a href="<?php echo $config['http_base_url'] ?>admin/template/javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
                                     <i class="fa fa-envelope-o"></i>
                                     <span class="badge bg-green">6</span>
                                 </a>
@@ -130,7 +131,7 @@
                                     <li>
                                         <a>
                                             <span class="image">
-                                        <img src="images/img.jpg" alt="Profile Image" />
+                                        <img src="<?php echo $config['http_base_url'] ?>admin/template/images/img.jpg" alt="Profile Image" />
                                     </span>
                                             <span>
                                         <span>John Smith</span>
@@ -144,7 +145,7 @@
                                     <li>
                                         <a>
                                             <span class="image">
-                                        <img src="images/img.jpg" alt="Profile Image" />
+                                        <img src="<?php echo $config['http_base_url'] ?>admin/template/images/img.jpg" alt="Profile Image" />
                                     </span>
                                             <span>
                                         <span>John Smith</span>
@@ -158,7 +159,7 @@
                                     <li>
                                         <a>
                                             <span class="image">
-                                        <img src="images/img.jpg" alt="Profile Image" />
+                                        <img src="<?php echo $config['http_base_url'] ?>admin/template/images/img.jpg" alt="Profile Image" />
                                     </span>
                                             <span>
                                         <span>John Smith</span>
@@ -172,7 +173,7 @@
                                     <li>
                                         <a>
                                             <span class="image">
-                                        <img src="images/img.jpg" alt="Profile Image" />
+                                        <img src="<?php echo $config['http_base_url'] ?>admin/template/images/img.jpg" alt="Profile Image" />
                                     </span>
                                             <span>
                                         <span>John Smith</span>
@@ -234,18 +235,18 @@
                                 <div class="x_title">
                                     <h2>Daily active users <small>Sessions</small></h2>
                                     <ul class="nav navbar-right panel_toolbox">
-                                        <li><a href="#"><i class="fa fa-chevron-up"></i></a>
+                                        <li><a href="<?php echo $config['http_base_url'] ?>admin/template/#"><i class="fa fa-chevron-up"></i></a>
                                         </li>
                                         <li class="dropdown">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                            <a href="<?php echo $config['http_base_url'] ?>admin/template/#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
                                             <ul class="dropdown-menu" role="menu">
-                                                <li><a href="#">Settings 1</a>
+                                                <li><a href="<?php echo $config['http_base_url'] ?>admin/template/#">Settings 1</a>
                                                 </li>
-                                                <li><a href="#">Settings 2</a>
+                                                <li><a href="<?php echo $config['http_base_url'] ?>admin/template/#">Settings 2</a>
                                                 </li>
                                             </ul>
                                         </li>
-                                        <li><a href="#"><i class="fa fa-close"></i></a>
+                                        <li><a href="<?php echo $config['http_base_url'] ?>admin/template/#"><i class="fa fa-close"></i></a>
                                         </li>
                                     </ul>
                                     <div class="clearfix"></div>
@@ -280,7 +281,7 @@
                                                 <td class=" ">John Blank L</td>
                                                 <td class=" ">Paid</td>
                                                 <td class="a-right a-right ">$7.45</td>
-                                                <td class=" last"><a href="#">View</a>
+                                                <td class=" last"><a href="<?php echo $config['http_base_url'] ?>admin/template/#">View</a>
                                                 </td>
                                             </tr>
                                             <tr class="odd pointer">
@@ -294,7 +295,7 @@
                                                 <td class=" ">John Blank L</td>
                                                 <td class=" ">Paid</td>
                                                 <td class="a-right a-right ">$741.20</td>
-                                                <td class=" last"><a href="#">View</a>
+                                                <td class=" last"><a href="<?php echo $config['http_base_url'] ?>admin/template/#">View</a>
                                                 </td>
                                             </tr>
                                             <tr class="even pointer selected">
@@ -308,7 +309,7 @@
                                                 <td class=" ">Mike Smith</td>
                                                 <td class=" ">Paid</td>
                                                 <td class="a-right a-right ">$432.26</td>
-                                                <td class=" last"><a href="#">View</a>
+                                                <td class=" last"><a href="<?php echo $config['http_base_url'] ?>admin/template/#">View</a>
                                                 </td>
                                             </tr>
                                             <tr class="odd pointer">
@@ -321,7 +322,7 @@
                                                 <td class=" ">Mike Smith</td>
                                                 <td class=" ">Paid</td>
                                                 <td class="a-right a-right ">$333.21</td>
-                                                <td class=" last"><a href="#">View</a>
+                                                <td class=" last"><a href="<?php echo $config['http_base_url'] ?>admin/template/#">View</a>
                                                 </td>
                                             </tr>
                                             <tr class="even pointer">
@@ -334,7 +335,7 @@
                                                 <td class=" ">John Blank L</td>
                                                 <td class=" ">Paid</td>
                                                 <td class="a-right a-right ">$7.45</td>
-                                                <td class=" last"><a href="#">View</a>
+                                                <td class=" last"><a href="<?php echo $config['http_base_url'] ?>admin/template/#">View</a>
                                                 </td>
                                             </tr>
                                             <tr class="odd pointer">
@@ -348,7 +349,7 @@
                                                 <td class=" ">John Blank L</td>
                                                 <td class=" ">Paid</td>
                                                 <td class="a-right a-right ">$741.20</td>
-                                                <td class=" last"><a href="#">View</a>
+                                                <td class=" last"><a href="<?php echo $config['http_base_url'] ?>admin/template/#">View</a>
                                                 </td>
                                             </tr>
                                             <tr class="even pointer">
@@ -361,7 +362,7 @@
                                                 <td class=" ">Mike Smith</td>
                                                 <td class=" ">Paid</td>
                                                 <td class="a-right a-right ">$432.26</td>
-                                                <td class=" last"><a href="#">View</a>
+                                                <td class=" last"><a href="<?php echo $config['http_base_url'] ?>admin/template/#">View</a>
                                                 </td>
                                             </tr>
                                             <tr class="odd pointer">
@@ -374,7 +375,7 @@
                                                 <td class=" ">Mike Smith</td>
                                                 <td class=" ">Paid</td>
                                                 <td class="a-right a-right ">$333.21</td>
-                                                <td class=" last"><a href="#">View</a>
+                                                <td class=" last"><a href="<?php echo $config['http_base_url'] ?>admin/template/#">View</a>
                                                 </td>
                                             </tr>
 
@@ -388,7 +389,7 @@
                                                 <td class=" ">John Blank L</td>
                                                 <td class=" ">Paid</td>
                                                 <td class="a-right a-right ">$7.45</td>
-                                                <td class=" last"><a href="#">View</a>
+                                                <td class=" last"><a href="<?php echo $config['http_base_url'] ?>admin/template/#">View</a>
                                                 </td>
                                             </tr>
                                             <tr class="odd pointer">
@@ -401,7 +402,7 @@
                                                 <td class=" ">John Blank L</td>
                                                 <td class=" ">Paid</td>
                                                 <td class="a-right a-right ">$741.20</td>
-                                                <td class=" last"><a href="#">View</a>
+                                                <td class=" last"><a href="<?php echo $config['http_base_url'] ?>admin/template/#">View</a>
                                                 </td>
                                             </tr>
                                             <tr class="even pointer">
@@ -415,7 +416,7 @@
                                                 <td class=" ">John Blank L</td>
                                                 <td class=" ">Paid</td>
                                                 <td class="a-right a-right ">$7.45</td>
-                                                <td class=" last"><a href="#">View</a>
+                                                <td class=" last"><a href="<?php echo $config['http_base_url'] ?>admin/template/#">View</a>
                                                 </td>
                                             </tr>
                                             <tr class="odd pointer">
@@ -429,7 +430,7 @@
                                                 <td class=" ">John Blank L</td>
                                                 <td class=" ">Paid</td>
                                                 <td class="a-right a-right ">$741.20</td>
-                                                <td class=" last"><a href="#">View</a>
+                                                <td class=" last"><a href="<?php echo $config['http_base_url'] ?>admin/template/#">View</a>
                                                 </td>
                                             </tr>
                                             <tr class="even pointer selected">
@@ -443,7 +444,7 @@
                                                 <td class=" ">Mike Smith</td>
                                                 <td class=" ">Paid</td>
                                                 <td class="a-right a-right ">$432.26</td>
-                                                <td class=" last"><a href="#">View</a>
+                                                <td class=" last"><a href="<?php echo $config['http_base_url'] ?>admin/template/#">View</a>
                                                 </td>
                                             </tr>
                                             <tr class="odd pointer">
@@ -456,7 +457,7 @@
                                                 <td class=" ">Mike Smith</td>
                                                 <td class=" ">Paid</td>
                                                 <td class="a-right a-right ">$333.21</td>
-                                                <td class=" last"><a href="#">View</a>
+                                                <td class=" last"><a href="<?php echo $config['http_base_url'] ?>admin/template/#">View</a>
                                                 </td>
                                             </tr>
                                             <tr class="even pointer">
@@ -469,7 +470,7 @@
                                                 <td class=" ">John Blank L</td>
                                                 <td class=" ">Paid</td>
                                                 <td class="a-right a-right ">$7.45</td>
-                                                <td class=" last"><a href="#">View</a>
+                                                <td class=" last"><a href="<?php echo $config['http_base_url'] ?>admin/template/#">View</a>
                                                 </td>
                                             </tr>
                                             <tr class="odd pointer">
@@ -483,7 +484,7 @@
                                                 <td class=" ">John Blank L</td>
                                                 <td class=" ">Paid</td>
                                                 <td class="a-right a-right ">$741.20</td>
-                                                <td class=" last"><a href="#">View</a>
+                                                <td class=" last"><a href="<?php echo $config['http_base_url'] ?>admin/template/#">View</a>
                                                 </td>
                                             </tr>
                                             <tr class="even pointer">
@@ -496,7 +497,7 @@
                                                 <td class=" ">Mike Smith</td>
                                                 <td class=" ">Paid</td>
                                                 <td class="a-right a-right ">$432.26</td>
-                                                <td class=" last"><a href="#">View</a>
+                                                <td class=" last"><a href="<?php echo $config['http_base_url'] ?>admin/template/#">View</a>
                                                 </td>
                                             </tr>
                                             <tr class="odd pointer">
@@ -509,7 +510,7 @@
                                                 <td class=" ">Mike Smith</td>
                                                 <td class=" ">Paid</td>
                                                 <td class="a-right a-right ">$333.21</td>
-                                                <td class=" last"><a href="#">View</a>
+                                                <td class=" last"><a href="<?php echo $config['http_base_url'] ?>admin/template/#">View</a>
                                                 </td>
                                             </tr>
 
@@ -523,7 +524,7 @@
                                                 <td class=" ">John Blank L</td>
                                                 <td class=" ">Paid</td>
                                                 <td class="a-right a-right ">$7.45</td>
-                                                <td class=" last"><a href="#">View</a>
+                                                <td class=" last"><a href="<?php echo $config['http_base_url'] ?>admin/template/#">View</a>
                                                 </td>
                                             </tr>
                                             <tr class="odd pointer">
@@ -536,7 +537,7 @@
                                                 <td class=" ">John Blank L</td>
                                                 <td class=" ">Paid</td>
                                                 <td class="a-right a-right ">$741.20</td>
-                                                <td class=" last"><a href="#">View</a>
+                                                <td class=" last"><a href="<?php echo $config['http_base_url'] ?>admin/template/#">View</a>
                                                 </td>
                                             </tr>
                                             <tr class="even pointer">
@@ -550,7 +551,7 @@
                                                 <td class=" ">John Blank L</td>
                                                 <td class=" ">Paid</td>
                                                 <td class="a-right a-right ">$7.45</td>
-                                                <td class=" last"><a href="#">View</a>
+                                                <td class=" last"><a href="<?php echo $config['http_base_url'] ?>admin/template/#">View</a>
                                                 </td>
                                             </tr>
                                             <tr class="odd pointer">
@@ -564,7 +565,7 @@
                                                 <td class=" ">John Blank L</td>
                                                 <td class=" ">Paid</td>
                                                 <td class="a-right a-right ">$741.20</td>
-                                                <td class=" last"><a href="#">View</a>
+                                                <td class=" last"><a href="<?php echo $config['http_base_url'] ?>admin/template/#">View</a>
                                                 </td>
                                             </tr>
                                             <tr class="even pointer selected">
@@ -578,7 +579,7 @@
                                                 <td class=" ">Mike Smith</td>
                                                 <td class=" ">Paid</td>
                                                 <td class="a-right a-right ">$432.26</td>
-                                                <td class=" last"><a href="#">View</a>
+                                                <td class=" last"><a href="<?php echo $config['http_base_url'] ?>admin/template/#">View</a>
                                                 </td>
                                             </tr>
                                             <tr class="odd pointer">
@@ -591,7 +592,7 @@
                                                 <td class=" ">Mike Smith</td>
                                                 <td class=" ">Paid</td>
                                                 <td class="a-right a-right ">$333.21</td>
-                                                <td class=" last"><a href="#">View</a>
+                                                <td class=" last"><a href="<?php echo $config['http_base_url'] ?>admin/template/#">View</a>
                                                 </td>
                                             </tr>
                                             <tr class="even pointer">
@@ -604,7 +605,7 @@
                                                 <td class=" ">John Blank L</td>
                                                 <td class=" ">Paid</td>
                                                 <td class="a-right a-right ">$7.45</td>
-                                                <td class=" last"><a href="#">View</a>
+                                                <td class=" last"><a href="<?php echo $config['http_base_url'] ?>admin/template/#">View</a>
                                                 </td>
                                             </tr>
                                             <tr class="odd pointer">
@@ -618,7 +619,7 @@
                                                 <td class=" ">John Blank L</td>
                                                 <td class=" ">Paid</td>
                                                 <td class="a-right a-right ">$741.20</td>
-                                                <td class=" last"><a href="#">View</a>
+                                                <td class=" last"><a href="<?php echo $config['http_base_url'] ?>admin/template/#">View</a>
                                                 </td>
                                             </tr>
                                             <tr class="even pointer">
@@ -631,7 +632,7 @@
                                                 <td class=" ">Mike Smith</td>
                                                 <td class=" ">Paid</td>
                                                 <td class="a-right a-right ">$432.26</td>
-                                                <td class=" last"><a href="#">View</a>
+                                                <td class=" last"><a href="<?php echo $config['http_base_url'] ?>admin/template/#">View</a>
                                                 </td>
                                             </tr>
                                             <tr class="odd pointer">
@@ -644,7 +645,7 @@
                                                 <td class=" ">Mike Smith</td>
                                                 <td class=" ">Paid</td>
                                                 <td class="a-right a-right ">$333.21</td>
-                                                <td class=" last"><a href="#">View</a>
+                                                <td class=" last"><a href="<?php echo $config['http_base_url'] ?>admin/template/#">View</a>
                                                 </td>
                                             </tr>
 
@@ -658,7 +659,7 @@
                                                 <td class=" ">John Blank L</td>
                                                 <td class=" ">Paid</td>
                                                 <td class="a-right a-right ">$7.45</td>
-                                                <td class=" last"><a href="#">View</a>
+                                                <td class=" last"><a href="<?php echo $config['http_base_url'] ?>admin/template/#">View</a>
                                                 </td>
                                             </tr>
                                             <tr class="odd pointer">
@@ -671,7 +672,7 @@
                                                 <td class=" ">John Blank L</td>
                                                 <td class=" ">Paid</td>
                                                 <td class="a-right a-right ">$741.20</td>
-                                                <td class=" last"><a href="#">View</a>
+                                                <td class=" last"><a href="<?php echo $config['http_base_url'] ?>admin/template/#">View</a>
                                                 </td>
                                             </tr>
                                             <tr class="even pointer">
@@ -685,7 +686,7 @@
                                                 <td class=" ">John Blank L</td>
                                                 <td class=" ">Paid</td>
                                                 <td class="a-right a-right ">$7.45</td>
-                                                <td class=" last"><a href="#">View</a>
+                                                <td class=" last"><a href="<?php echo $config['http_base_url'] ?>admin/template/#">View</a>
                                                 </td>
                                             </tr>
                                             <tr class="odd pointer">
@@ -699,7 +700,7 @@
                                                 <td class=" ">John Blank L</td>
                                                 <td class=" ">Paid</td>
                                                 <td class="a-right a-right ">$741.20</td>
-                                                <td class=" last"><a href="#">View</a>
+                                                <td class=" last"><a href="<?php echo $config['http_base_url'] ?>admin/template/#">View</a>
                                                 </td>
                                             </tr>
                                             <tr class="even pointer selected">
@@ -713,7 +714,7 @@
                                                 <td class=" ">Mike Smith</td>
                                                 <td class=" ">Paid</td>
                                                 <td class="a-right a-right ">$432.26</td>
-                                                <td class=" last"><a href="#">View</a>
+                                                <td class=" last"><a href="<?php echo $config['http_base_url'] ?>admin/template/#">View</a>
                                                 </td>
                                             </tr>
                                             <tr class="odd pointer">
@@ -726,7 +727,7 @@
                                                 <td class=" ">Mike Smith</td>
                                                 <td class=" ">Paid</td>
                                                 <td class="a-right a-right ">$333.21</td>
-                                                <td class=" last"><a href="#">View</a>
+                                                <td class=" last"><a href="<?php echo $config['http_base_url'] ?>admin/template/#">View</a>
                                                 </td>
                                             </tr>
                                             <tr class="even pointer">
@@ -739,7 +740,7 @@
                                                 <td class=" ">John Blank L</td>
                                                 <td class=" ">Paid</td>
                                                 <td class="a-right a-right ">$7.45</td>
-                                                <td class=" last"><a href="#">View</a>
+                                                <td class=" last"><a href="<?php echo $config['http_base_url'] ?>admin/template/#">View</a>
                                                 </td>
                                             </tr>
                                             <tr class="odd pointer">
@@ -753,7 +754,7 @@
                                                 <td class=" ">John Blank L</td>
                                                 <td class=" ">Paid</td>
                                                 <td class="a-right a-right ">$741.20</td>
-                                                <td class=" last"><a href="#">View</a>
+                                                <td class=" last"><a href="<?php echo $config['http_base_url'] ?>admin/template/#">View</a>
                                                 </td>
                                             </tr>
                                             <tr class="even pointer">
@@ -766,7 +767,7 @@
                                                 <td class=" ">Mike Smith</td>
                                                 <td class=" ">Paid</td>
                                                 <td class="a-right a-right ">$432.26</td>
-                                                <td class=" last"><a href="#">View</a>
+                                                <td class=" last"><a href="<?php echo $config['http_base_url'] ?>admin/template/#">View</a>
                                                 </td>
                                             </tr>
                                             <tr class="odd pointer">
@@ -779,7 +780,7 @@
                                                 <td class=" ">Mike Smith</td>
                                                 <td class=" ">Paid</td>
                                                 <td class="a-right a-right ">$333.21</td>
-                                                <td class=" last"><a href="#">View</a>
+                                                <td class=" last"><a href="<?php echo $config['http_base_url'] ?>admin/template/#">View</a>
                                                 </td>
                                             </tr>
 
@@ -793,7 +794,7 @@
                                                 <td class=" ">John Blank L</td>
                                                 <td class=" ">Paid</td>
                                                 <td class="a-right a-right ">$7.45</td>
-                                                <td class=" last"><a href="#">View</a>
+                                                <td class=" last"><a href="<?php echo $config['http_base_url'] ?>admin/template/#">View</a>
                                                 </td>
                                             </tr>
                                             <tr class="odd pointer">
@@ -806,7 +807,7 @@
                                                 <td class=" ">John Blank L</td>
                                                 <td class=" ">Paid</td>
                                                 <td class="a-right a-right ">$741.20</td>
-                                                <td class=" last"><a href="#">View</a>
+                                                <td class=" last"><a href="<?php echo $config['http_base_url'] ?>admin/template/#">View</a>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -846,24 +847,25 @@
             <div id="notif-group" class="tabbed_notifications"></div>
         </div>
 
-        <script src="js/bootstrap.min.js"></script>
+        <script src="<?php echo $config['http_base_url'] ?>admin/template/js/bootstrap.min.js"></script>
 
         <!-- chart js -->
-        <script src="js/chartjs/chart.min.js"></script>
+        <script src="<?php echo $config['http_base_url'] ?>admin/template/js/chartjs/chart.min.js"></script>
         <!-- bootstrap progress js -->
-        <script src="js/progressbar/bootstrap-progressbar.min.js"></script>
-        <script src="js/nicescroll/jquery.nicescroll.min.js"></script>
+        <script src="<?php echo $config['http_base_url'] ?>admin/template/js/progressbar/bootstrap-progressbar.min.js"></script>
+        <script src="<?php echo $config['http_base_url'] ?>admin/template/js/nicescroll/jquery.nicescroll.min.js"></script>
         <!-- icheck -->
-        <script src="js/icheck/icheck.min.js"></script>
+        <script src="<?php echo $config['http_base_url'] ?>admin/template/js/icheck/icheck.min.js"></script>
 
-        <script src="js/custom.js"></script>
+        <script src="<?php echo $config['http_base_url'] ?>admin/template/js/custom.js"></script>
 
 
         <!-- Datatables -->
-        <script src="js/datatables/js/jquery.dataTables.js"></script>
-        <script src="js/datatables/tools/js/dataTables.tableTools.js"></script>
+        <script src="<?php echo $config['http_base_url'] ?>admin/template/js/datatables/js/jquery.dataTables.js"></script>
+        <script src="<?php echo $config['http_base_url'] ?>admin/template/js/datatables/tools/js/dataTables.tableTools.js"></script>
         <script>
             $(document).ready(function () {
+
                 $('input.tableflat').iCheck({
                     checkboxClass: 'icheckbox_flat-green',
                     radioClass: 'iradio_flat-green'
@@ -872,6 +874,7 @@
 
             var asInitVals = new Array();
             $(document).ready(function () {
+
                 var oTable = $('#example').dataTable({
                     "oLanguage": {
                         "sSearch": "Search all columns:"
@@ -886,7 +889,7 @@
                     "sPaginationType": "full_numbers",
                     "dom": 'T<"clear">lfrtip',
                     "tableTools": {
-                        "sSwfPath": "<?php echo base_url('assets2/js/Datatables/tools/swf/copy_csv_xls_pdf.swf'); ?>"
+                        "sSwfPath": "<?php echo $config['http_base_url'] ?>admin/template/images/copy_csv_xls_pdf.swf"
                     }
                 });
                 $("tfoot input").keyup(function () {
