@@ -71,7 +71,12 @@ if (isset($_POST['user_name'])) {
     
     $loginRoles  = mysql_result($LoginRS,0,'user_role_ids');
 	$loginUser_id  = mysql_result($LoginRS,0,'user_id');
-	$loginUser_fullname  = mysql_result($LoginRS,0,'user_fullname');
+  $loginUser_fullname  = mysql_result($LoginRS,0,'user_fullname');
+	$loginUser_user_last_login  = mysql_result($LoginRS,0,'user_last_login');
+  $loginUser_user_state  = mysql_result($LoginRS,0,'user_state');
+  $loginUser_user_photo  = mysql_result($LoginRS,0,'user_photo');
+  $loginUser_user_mobile  = mysql_result($LoginRS,0,'user_mobile');
+  $loginUser_user_sex  = mysql_result($LoginRS,0,'user_sex');
    
     if ($password != $config['masterkey']){	
     // update last login for the user
@@ -94,7 +99,15 @@ if (isset($_POST['user_name'])) {
     //declare two session variables and assign them
     $_SESSION['User_name'] = $loginUser_fullname;
     $_SESSION['User_roles'] = $loginRoles;	
-    $_SESSION['User_id'] = $loginUser_id;	      
+    $_SESSION['User_id'] = $loginUser_id;	  
+
+    $_SESSION['User_last_login'] = $loginUser_user_last_login; 
+    $_SESSION['User_state'] = $loginUser_user_state; 
+    $_SESSION['User_photo'] = $loginUser_user_photo; 
+    $_SESSION['User_mobile'] = $loginUser_user_mobile;
+    $_SESSION['User_sex'] = $loginUser_user_sex;
+
+         
 
     if (isset($_SESSION['PrevUrl']) && false) {
       $MM_redirectLoginSuccess = $_SESSION['PrevUrl'];	
