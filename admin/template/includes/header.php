@@ -62,7 +62,7 @@
                             <?php if(!empty($_SESSION['User_photo'])): ?>
                                 <img src="images/img.jpg" alt="<?php echo $_SESSION['User_name'] ?>" class="img-circle profile_img">
                             <?php else: ?>
-                                <img src="<?php echo $config['http_base_url']; ?>admin/template/images/img.jpg" alt="<?php echo $_SESSION['User_name'] ?>" class="img-circle profile_img">
+                                <img src="<?php echo $config['http_base_url']; ?>/admin/template/images/img.jpg" alt="<?php echo $_SESSION['User_name'] ?>" class="img-circle profile_img">
                             <?php endif; ?>
                         </div>
                         <div class="profile_info">
