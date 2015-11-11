@@ -1,4 +1,9 @@
-<?php include('template/includes/header.php'); ?>
+<?php 
+// the page title
+$pageTitle='بلانكك';
+include('template/includes/header.php'); ?>
+  <!-- page content -->
+            <div class="right_col" role="main">
                     <div class="row">
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="x_panel" style="min-height:600px;">
@@ -11,4 +16,5 @@
                         </div>
                     </div>
                 </div>
+                
 <?php include('template/includes/footer.php'); ?>
