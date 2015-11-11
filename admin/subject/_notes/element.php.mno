@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_get_all_lesson" value="name:lesson_id;datatype:int,name:lesson_name;datatype:string,name:lesson_unit_id;datatype:int,name:lesson_order;datatype:int,name:lesson_type;datatype:int,name:lesson_state;datatype:int,name:lesson_created_by;datatype:int,name:lesson_created_date;datatype:timestamp" />
+	<infoitem key="UD_get_all_element" value="name:element_id;datatype:int,name:element_title;datatype:string,name:element_lesson_id;datatype:int,name:element_order;datatype:int,name:element_type;datatype:string,name:element_value;datatype:blob,name:element_created_by;datatype:int,name:element_created_date;datatype:timestamp" />
+</info>
