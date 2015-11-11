@@ -1,6 +1,12 @@
 <?php 
-require_once('../Connections/dares_conn.php');
+
+session_start();
+
 require_once('../Connections/config.php');
+require_once('../Connections/dares_conn.php');
+
+if(isset($_SESSION['User_id'])) header('location:'.$config['http_base_url']."/admin/index.php");
+
 //require_once("../Connections/composer.php");
 
 if (!function_exists("GetSQLValueString")) {
@@ -32,12 +38,6 @@ function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDe
   }
   return $theValue;
 }
-}
-?>
-<?php
-// *** Validate request to login to this site.
-if (!isset($_SESSION)) {
-  session_start();
 }
 
 $loginFormAction = $_SERVER['PHP_SELF'];
