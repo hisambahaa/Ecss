@@ -43,7 +43,7 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form1")) {
                        GetSQLValueString($_POST['element_order'], "int"),
                        GetSQLValueString($_POST['element_type'], "text"),
                        GetSQLValueString($_POST['element_value'], "text"),
-                       GetSQLValueString($_POST['element_created_by'], "int"));
+                       GetSQLValueString($_SESSION['User_id'], "int"));
 
   mysql_select_db($database_dares_conn, $dares_conn);
   $Result1 = mysql_query($insertSQL, $dares_conn) or die(mysql_error());
