@@ -56,7 +56,7 @@ session_start();
                 <div class="left_col scroll-view">
 
                     <div class="navbar nav_title" style="border: 0;">
-                        <a href="index.php" class="site_title"><i class="fa fa-paw"></i> <span>نظام دارس</span></a>
+                        <a href="<?php echo $config['http_base_url'] ?>admin/index.php" class="site_title"><i class="fa fa-paw"></i> <span>نظام دارس</span></a>
                     </div>
                     <div class="clearfix"></div>
 
