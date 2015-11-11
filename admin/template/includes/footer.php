@@ -12,22 +12,22 @@
         <div id="notif-group" class="tabbed_notifications"></div>
     </div>
 
-    <script src="<?php echo 'http://'.$_SERVER['SERVER_ADDR'].'/Ecss/admin/template/';?>js/bootstrap.min.js"></script>
+    <script src="<?php echo $config['base_url'].'admin/template/';?>js/bootstrap.min.js"></script>
 
     <!-- chart js -->
-    <script src="<?php echo 'http://'.$_SERVER['SERVER_ADDR'].'/Ecss/admin/template/';?>js/chartjs/chart.min.js"></script>
+    <script src="<?php echo $config['base_url'].'admin/template/';?>js/chartjs/chart.min.js"></script>
     <!-- bootstrap progress js -->
-    <script src="<?php echo 'http://'.$_SERVER['SERVER_ADDR'].'/Ecss/admin/template/';?>js/progressbar/bootstrap-progressbar.min.js"></script>
-    <script src="<?php echo 'http://'.$_SERVER['SERVER_ADDR'].'/Ecss/admin/template/';?>js/nicescroll/jquery.nicescroll.min.js"></script>
+    <script src="<?php echo $config['base_url'].'admin/template/';?>js/progressbar/bootstrap-progressbar.min.js"></script>
+    <script src="<?php echo $config['base_url'].'admin/template/';?>js/nicescroll/jquery.nicescroll.min.js"></script>
     <!-- icheck -->
-    <script src="<?php echo 'http://'.$_SERVER['SERVER_ADDR'].'/Ecss/admin/template/';?>js/icheck/icheck.min.js"></script>
+    <script src="<?php echo $config['base_url'].'admin/template/';?>js/icheck/icheck.min.js"></script>
 
-    <script src="<?php echo 'http://'.$_SERVER['SERVER_ADDR'].'/Ecss/admin/template/';?>js/custom.js"></script>
+    <script src="<?php echo $config['base_url'].'admin/template/';?>js/custom.js"></script>
 
     <!-- moris js -->
-    <script src="<?php echo 'http://'.$_SERVER['SERVER_ADDR'].'/Ecss/admin/template/';?>js/moris/raphael-min.js"></script>
-    <script src="<?php echo 'http://'.$_SERVER['SERVER_ADDR'].'/Ecss/admin/template/';?>js/moris/morris.js"></script>
-    <script src="<?php echo 'http://'.$_SERVER['SERVER_ADDR'].'/Ecss/admin/template/';?>js/moris/example.js"></script>
+    <script src="<?php echo $config['base_url'].'admin/template/';?>js/moris/raphael-min.js"></script>
+    <script src="<?php echo $config['base_url'].'admin/template/';?>js/moris/morris.js"></script>
+    <script src="<?php echo $config['base_url'].'admin/template/';?>js/moris/example.js"></script>
 
 </body>
 
