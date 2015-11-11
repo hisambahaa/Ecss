@@ -126,7 +126,7 @@ require_once __DIR__ .'/../../../Connections/config.php';
                         <a data-toggle="tooltip" data-placement="top" title="Lock">
                             <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
                         </a>
-                        <a data-toggle="tooltip" data-placement="top" title="Logout">
+                        <a data-toggle="tooltip" href='<?php echo $config['http_base_url'] ?>admin/logout.php' data-placement="top" title="تسجيل الخروج">
                             <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
                         </a>
                     </div>

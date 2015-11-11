@@ -29,7 +29,7 @@
                                     <li>
                                         <a href="javascript:;">Help</a>
                                     </li>
-                                    <li><a href="<?php echo $config['http_base_url'] ?>/admin/logout.php"><i class="fa fa-sign-out pull-right"></i> تسجيل الخروج</a>
+                                    <li><a href="<?php echo $config['http_base_url'] ?>admin/logout.php"><i class="fa fa-sign-out pull-right"></i> تسجيل الخروج</a>
                                     </li>
                                 </ul>
                             </li>
