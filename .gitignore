@@ -1,3 +1,8 @@
 _notes
 _mmServerScripts
 dwsync.xml
+node_modules
+dist
+.tmp
+.sass-cache
+bower_components

@@ -10,7 +10,7 @@
                             <li class="">
                                 <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                      <?php if(!empty($_SESSION['User_photo'])): ?>
-                                                <img src="images/img.jpg" alt="<?php echo $_SESSION['User_name'] ?>" >
+                                                <img src="<?php echo $_SESSION['User_photo'] ?>" alt="<?php echo $_SESSION['User_name'] ?>" >
                                             <?php else: ?>
                                                  <img src="<?php echo $config['http_base_url']; ?>admin/template/images/img.jpg" alt="<?php echo $_SESSION['User_name'] ?>" />
                                             <?php endif; ?>
