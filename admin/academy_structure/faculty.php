@@ -1,7 +1,6 @@
-<?php require_once('../../Connections/dares_conn.php'); ?>
-<?php require_once('../../Connections/config.php'); ?>
-<?php require_once('../../Connections/perm.php'); ?>
-<?php
+<?php 
+require_once('../../Connections/boot.php');
+
 $editFormAction = $_SERVER['PHP_SELF'];
 if (isset($_SERVER['QUERY_STRING'])) {
   $editFormAction .= "?" . htmlentities($_SERVER['QUERY_STRING']);
@@ -9,8 +8,8 @@ if (isset($_SERVER['QUERY_STRING'])) {
 
 if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form1")) {
   $insertSQL = sprintf("INSERT INTO academy_structure_faculty (faculty_name, faculty_created_by) VALUES (%s, %s)",
-                       GetSQLValueString($_POST['faculty_name'], "text"),
-                       GetSQLValueString($_SESSION['User_id'], "int"));
+   GetSQLValueString($_POST['faculty_name'], "text"),
+   GetSQLValueString($_SESSION['User_id'], "int"));
 
   mysql_select_db($database_dares_conn, $dares_conn);
   $Result1 = mysql_query($insertSQL, $dares_conn) or die(mysql_error());
@@ -29,59 +28,86 @@ $totalRows_get_faculty = mysql_num_rows($get_faculty);
 <?php
 $pageTitle='بلانكك';
 require_once $config['base_url'].'/admin/template/includes/header.php'; ?>
-  <!-- page content -->
-            <div class="right_col" role="main">
-                    <div class="row">
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <div class="x_panel" style="min-height:600px;">
-                                <div class="x_title">
-                                    <h2>الكليات</h2>
-                                    <div class="clearfix"></div>
-<form action="<?php echo $editFormAction; ?>" method="post" name="form1" id="form1">
-  <table align="center">
-    <tr valign="baseline">
-      <td nowrap="nowrap" align="right">اسم الكلية : </td>
-      <td><span id="sprytextfield1">
-        <input type="text" name="faculty_name" value="" size="32" class="form-control col-md-7 col-xs-12"/>
-      <span class="textfieldRequiredMsg">*</span></span></td>
+<!-- page content -->
+<div class="right_col" role="main">
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <div class="x_panel" style="min-height:600px;">
+        <div class="x_title">
+          <h2>الكليات</h2>
+           <div class="clearfix"></div>
+         </div>
+         
+          <div class="row">
+          <div class="col-sm-12 col-md-6 col-lg-6">
+          <form action="<?php echo $editFormAction; ?>" method="post" class='form-group' name="form1" id="form1">
+            <label class="col-sm-3 control-label">إسم الكلية</label>
+            <div class="input-group">
+              <input type="text" name="faculty_name" id="faculty_name" class="form-control">
+              <span class="input-group-btn">
+              <button type="submit" class="btn btn-primary">اضافة</button> 
+              </span>
+            </div>
 
-      <td align="center" valign="middle"><input type="submit" value="اضافة" class="btn btn-round btn-success"/></td>
-    </tr>
-  </table>
-  <input type="hidden" name="MM_insert" value="form1" />
-</form>
-<p>&nbsp;</p>
-<table align="center" class="table table-striped responsive-utilities jambo_table bulk_action">
-<thead>
-  <tr class="headings">
-    <td>رقم</td>
-    <td>اسم</td>
-    <td>بواسطة </td>
-    <td>تاريخ الانشاء</td>
-    <td>السنوات الدراسية</td>
-  </tr>
-</thead>
-<tbody>
-  <?php do { ?>
-    <tr>
-      <td>1</td>
-      <td><?php echo $row_get_faculty['faculty_name']; ?></td>
-      <td><?php echo $row_get_faculty['user_fullname']; ?></td>
-      <td><?php echo $row_get_faculty['faculty_created_date']; ?></td>
-      <td><a href="year.php?fid=<?php echo $row_get_faculty['faculty_id']; ?>" class="btn btn-success">السنوات الدراسية</a></td>
-    </tr>
-    <?php } while ($row_get_faculty = mysql_fetch_assoc($get_faculty)); ?>
-</tbody>
-</table>
-<script type="text/javascript">
-var sprytextfield1 = new Spry.Widget.ValidationTextField("sprytextfield1");
+            <input type="hidden" name="MM_insert" value="form1" />
+          </form>
+          </div>
+          </div>
+          <p>&nbsp;</p>
+          <table align="center" class="table table-striped responsive-utilities jambo_table bulk_action">
+            <thead>
+              <tr class="headings">
+                <td></td>
+                <td>رقم</td>
+                <td>اسم</td>
+                <td>بواسطة </td>
+                <td>تاريخ الانشاء</td>
+                <td>السنوات الدراسية</td>
+              </tr>
+            </thead>
+            <tbody>
+              <?php do { ?>
+              <tr>
+                <td><input type="checkbox" class='tableflat'></td>
+                <td>1</td>
+                <td><?php echo $row_get_faculty['faculty_name']; ?></td>
+                <td><?php echo $row_get_faculty['user_fullname']; ?></td>
+                <td><?php echo $row_get_faculty['faculty_created_date']; ?></td>
+                <td>
+                  <a href="year.php?fid=<?php echo $row_get_faculty['faculty_id']; ?>" class="btn btn-success">
+                  <i class="fa fa-calendar"></i>
+                   السنوات الدراسية
+                   </a>
+                   <a href="" class='btn btn-info'>
+                    <i class="fa fa-edit"></i>
+                     تعديل
+                   </a>
+                   <a href="" class='btn btn-danger'>
+                    <i class="fa fa-remove"></i>
+                     تعديل
+                   </a>
+                  </td>
+              </tr>
+              <?php } while ($row_get_faculty = mysql_fetch_assoc($get_faculty)); ?>
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+ <!-- icheck -->
+        <script src="<?php echo $config['http_base_url'] ?>admin/template/js/icheck/icheck.min.js"></script>
+<script>
+ $(document).ready(function () {
+
+                $('input.tableflat').iCheck({
+                    checkboxClass: 'icheckbox_flat-green',
+                    radioClass: 'iradio_flat-green'
+                });
+            });
 </script>
-</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
 <?php require_once $config['base_url'].'/admin/template/includes/footer.php'; ?>
 <?php
 mysql_free_result($get_faculty);

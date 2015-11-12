@@ -5,4 +5,5 @@ node_modules
 dist
 .tmp
 .sass-cache
+.phpintel
 bower_components

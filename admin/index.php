@@ -1,10 +1,5 @@
 <?php
-if (session_id() == '') {
-  session_start();
-}
-
-require_once __DIR__ .'/../Connections/config.php';
-require_once $config['base_url'].'/Connections/functions.php';
+require_once('../Connections/boot.php');
 
 $MM_authorizedUsers = "";
 $MM_donotCheckaccess = "true";

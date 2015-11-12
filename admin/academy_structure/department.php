@@ -1,6 +1,7 @@
-<?php require_once('../../Connections/dares_conn.php'); ?>
-<?php require_once('../../Connections/perm.php'); ?>
 <?php
+
+require_once('../../Connections/boot.php');
+
 $editFormAction = $_SERVER['PHP_SELF'];
 if (isset($_SERVER['QUERY_STRING'])) {
   $editFormAction .= "?" . htmlentities($_SERVER['QUERY_STRING']);
