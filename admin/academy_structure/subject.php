@@ -154,7 +154,7 @@ require_once $config['base_url'].'/admin/template/includes/header.php';
           <option value="1" <?php if (!(strcmp(1, htmlentities($row_get_subjects['sub_type'], ENT_COMPAT, 'utf-8')))) {echo "SELECTED";} ?>>1</option>
           <option value="2" <?php if (!(strcmp(2, htmlentities($row_get_subjects['sub_type'], ENT_COMPAT, 'utf-8')))) {echo "SELECTED";} ?>>2</option>
         </select></td>
-        <td><a href="../subject/unit.php?subid=<?php echo $row_get_subjects['sub_id']; ?>">go to</a></td>
+        <td><a href="../subject/lesson.php?subid=<?php echo $row_get_subjects['sub_id']; ?>">go to</a></td>
         <td><input type="submit" value="Update record" /></td>
       </tr>
     <input type="hidden" name="MM_update" value="form2" />
