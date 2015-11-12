@@ -5,6 +5,6 @@
 	<title></title>
 </head>
 <body>
-	<a href="admin/index.php">بوابة الادارة</a>
+	<a href="admin/login.php">بوابة الادارة</a>
 </body>
 </html>
