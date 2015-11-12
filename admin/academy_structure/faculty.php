@@ -1,36 +1,6 @@
 <?php require_once('../../Connections/dares_conn.php'); ?>
-<?php
-if (!function_exists("GetSQLValueString")) {
-function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
-{
-  if (PHP_VERSION < 6) {
-    $theValue = get_magic_quotes_gpc() ? stripslashes($theValue) : $theValue;
-  }
-
-  $theValue = function_exists("mysql_real_escape_string") ? mysql_real_escape_string($theValue) : mysql_escape_string($theValue);
-
-  switch ($theType) {
-    case "text":
-      $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
-      break;    
-    case "long":
-    case "int":
-      $theValue = ($theValue != "") ? intval($theValue) : "NULL";
-      break;
-    case "double":
-      $theValue = ($theValue != "") ? doubleval($theValue) : "NULL";
-      break;
-    case "date":
-      $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
-      break;
-    case "defined":
-      $theValue = ($theValue != "") ? $theDefinedValue : $theNotDefinedValue;
-      break;
-  }
-  return $theValue;
-}
-}
- require_once('../../Connections/perm.php'); ?>
+<?php require_once('../../Connections/config.php'); ?>
+<?php require_once('../../Connections/perm.php'); ?>
 <?php
 $editFormAction = $_SERVER['PHP_SELF'];
 if (isset($_SERVER['QUERY_STRING'])) {
@@ -47,58 +17,72 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form1")) {
 }
 
 mysql_select_db($database_dares_conn, $dares_conn);
-$query_get_faculty = "SELECT * FROM academy_structure_faculty";
+$query_get_faculty = "SELECT academy_structure_faculty . * , sys_users.user_fullname
+FROM academy_structure_faculty
+INNER JOIN sys_users ON sys_users.user_id = academy_structure_faculty.faculty_created_by";
 $get_faculty = mysql_query($query_get_faculty, $dares_conn) or die(mysql_error());
 $row_get_faculty = mysql_fetch_assoc($get_faculty);
 $totalRows_get_faculty = mysql_num_rows($get_faculty);
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
 <script src="../../SpryAssets/SpryValidationTextField.js" type="text/javascript"></script>
 <link href="../../SpryAssets/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
-</head>
-
-<body>
+<?php
+$pageTitle='بلانكك';
+require_once $config['base_url'].'/admin/template/includes/header.php'; ?>
+  <!-- page content -->
+            <div class="right_col" role="main">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="x_panel" style="min-height:600px;">
+                                <div class="x_title">
+                                    <h2>الكليات</h2>
+                                    <div class="clearfix"></div>
 <form action="<?php echo $editFormAction; ?>" method="post" name="form1" id="form1">
   <table align="center">
     <tr valign="baseline">
-      <td nowrap="nowrap" align="right">Faculty_name:</td>
+      <td nowrap="nowrap" align="right">اسم الكلية : </td>
       <td><span id="sprytextfield1">
-        <input type="text" name="faculty_name" value="" size="32" />
+        <input type="text" name="faculty_name" value="" size="32" class="form-control col-md-7 col-xs-12"/>
       <span class="textfieldRequiredMsg">*</span></span></td>
-    </tr>
-    <tr valign="baseline">
-      <td nowrap="nowrap" align="right">&nbsp;</td>
-      <td><input type="submit" value="Insert record" /></td>
+
+      <td align="center" valign="middle"><input type="submit" value="اضافة" class="btn btn-round btn-success"/></td>
     </tr>
   </table>
   <input type="hidden" name="MM_insert" value="form1" />
 </form>
 <p>&nbsp;</p>
-<table align="center">
-  <tr>
-    <td>faculty_id</td>
-    <td>faculty_name</td>
-    <td>faculty_created_by</td>
-    <td>faculty_created_date</td>
+<table align="center" class="table table-striped responsive-utilities jambo_table bulk_action">
+<thead>
+  <tr class="headings">
+    <td>رقم</td>
+    <td>اسم</td>
+    <td>بواسطة </td>
+    <td>تاريخ الانشاء</td>
+    <td>السنوات الدراسية</td>
   </tr>
+</thead>
+<tbody>
   <?php do { ?>
     <tr>
-      <td><a href="year.php?fid=<?php echo $row_get_faculty['faculty_id']; ?>">years</a></td>
+      <td>1</td>
       <td><?php echo $row_get_faculty['faculty_name']; ?></td>
-      <td><?php echo $row_get_faculty['faculty_created_by']; ?></td>
+      <td><?php echo $row_get_faculty['user_fullname']; ?></td>
       <td><?php echo $row_get_faculty['faculty_created_date']; ?></td>
+      <td><a href="year.php?fid=<?php echo $row_get_faculty['faculty_id']; ?>" class="btn btn-success">السنوات الدراسية</a></td>
     </tr>
     <?php } while ($row_get_faculty = mysql_fetch_assoc($get_faculty)); ?>
+</tbody>
 </table>
 <script type="text/javascript">
 var sprytextfield1 = new Spry.Widget.ValidationTextField("sprytextfield1");
 </script>
-</body>
-</html>
+</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+<?php require_once $config['base_url'].'/admin/template/includes/footer.php'; ?>
 <?php
 mysql_free_result($get_faculty);
 ?>

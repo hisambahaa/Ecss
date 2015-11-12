@@ -14,6 +14,8 @@ require_once __DIR__ .'/../../../Connections/config.php';
                                         </li>
                                         <li><a href="<?php echo $config['http_base_url'] ?>admin/template/index3.php">لوحة التحكم 3</a>
                                         </li>
+                                        <li><a href="<?php echo $config['http_base_url'] ?>admin/academy_structure/faculty.php">الهيكل</a>
+                                        </li>
                                     </ul>
                                 </li>
                                 <li><a><i class="fa fa-edit"></i> الفورمات <span class="fa fa-chevron-down"></span></a>
