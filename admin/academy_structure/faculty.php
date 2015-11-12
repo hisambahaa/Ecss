@@ -1,5 +1,8 @@
 <?php 
+
 require_once('../../Connections/boot.php');
+
+
 
 $editFormAction = $_SERVER['PHP_SELF'];
 if (isset($_SERVER['QUERY_STRING'])) {
@@ -22,10 +25,7 @@ INNER JOIN sys_users ON sys_users.user_id = academy_structure_faculty.faculty_cr
 $get_faculty = mysql_query($query_get_faculty, $dares_conn) or die(mysql_error());
 $row_get_faculty = mysql_fetch_assoc($get_faculty);
 $totalRows_get_faculty = mysql_num_rows($get_faculty);
-?>
-<script src="../../SpryAssets/SpryValidationTextField.js" type="text/javascript"></script>
-<link href="../../SpryAssets/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
-<?php
+
 // html page title
 $pageTitle='بلانكك';
 // require page header
@@ -98,8 +98,8 @@ require_once $config['base_url'].'/admin/template/includes/header.php';
       </div>
 
 
- <!-- icheck -->
-        <script src="<?php echo $config['http_base_url'] ?>admin/template/js/icheck/icheck.min.js"></script>
+<!-- icheck -->
+<script src="<?php echo $config['http_base_url'] ?>admin/template/js/icheck/icheck.min.js"></script>
 <script>
  $(document).ready(function () {
 

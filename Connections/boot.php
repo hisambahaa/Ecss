@@ -4,6 +4,7 @@ if (session_id() == '') {
 }
 
 require_once 'config.php';
+require_once 'languages'.DIRECTORY_SEPARATOR.$config['language'].'.php';
 require_once 'functions.php';
 require_once 'composer.php';
 require_once 'dares_conn.php';

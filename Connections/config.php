@@ -17,5 +17,6 @@ $config 			= array(
 	"masterkey"		=>  "ecss", // the master password for the application ,can be used to login with any account
 	"project_folder"=>	$project_folder,
 	"http_base_url"	=>  "http://".$_SERVER['HTTP_HOST']."/".$project_folder."/", // http url relative to the app root folder can be used in html 
-	"base_url"		=>	$base_url
+	"base_url"		=>	$base_url,
+	"language"		=> 'ar'
 );
