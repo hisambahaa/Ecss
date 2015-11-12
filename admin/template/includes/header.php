@@ -95,3 +95,6 @@ session_start();
             <!-- top navigation -->
            <?php require_once __DIR__ . '/topbar.php'; ?>
             <!-- /top navigation -->
+            <!-- page content -->
+<div class="right_col" role="main">
+                    <div class="row">

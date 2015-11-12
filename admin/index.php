@@ -1,27 +1,11 @@
 <?php
+
 require_once('../Connections/boot.php');
 
-$MM_authorizedUsers = "";
-$MM_donotCheckaccess = "true";
-
-
-
-$MM_restrictGoTo = "login.php";
-if (!((isset($_SESSION['User_name'])) && (isAuthorized("",$MM_authorizedUsers, $_SESSION['User_name'], $_SESSION['User_roles'])))) {   
-  $MM_qsChar = "?";
-  $MM_referrer = $_SERVER['PHP_SELF'];
-  if (strpos($MM_restrictGoTo, "?")) $MM_qsChar = "&";
-  if (isset($_SERVER['QUERY_STRING']) && strlen($_SERVER['QUERY_STRING']) > 0) 
-    $MM_referrer .= "?" . $_SERVER['QUERY_STRING'];
-  $MM_restrictGoTo = $MM_restrictGoTo. $MM_qsChar . "accesscheck=" . urlencode($MM_referrer);
-  header("Location: ". $MM_restrictGoTo); 
-  exit;
-}
 $pageTitle = 'الادارة';
-require_once $config['base_url'].'/admin/template/includes/header.php'; ?>
+require_once $config['base_url'].'/admin/template/includes/header.php'; 
 ?>
-<div class="right_col" role="main">
-  <div class="row">
+
    <div class="col-md-12 col-sm-12 col-xs-12">
     <div class="x_panel" style="min-height:600px;">
       <div class="x_title">
@@ -336,8 +320,7 @@ require_once $config['base_url'].'/admin/template/includes/header.php'; ?>
   </table>
 </div>
 </div>
-</div>
-</div>
+
 
 
 <?php require_once $config['base_url'].'/admin/template/includes/footer.php'; ?>

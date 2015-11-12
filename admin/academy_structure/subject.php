@@ -75,15 +75,16 @@ $query_get_subjects = sprintf("SELECT * FROM academy_structre_subject WHERE sub_
 $get_subjects = mysql_query($query_get_subjects, $dares_conn) or die(mysql_error());
 $row_get_subjects = mysql_fetch_assoc($get_subjects);
 $totalRows_get_subjects = mysql_num_rows($get_subjects);
-?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
-</head>
 
-<body>
+
+// html page title
+$pageTitle='بلانكك';
+// require page header
+require_once $config['base_url'].'/admin/template/includes/header.php';
+
+
+?>
+
 <form action="<?php echo $editFormAction; ?>" method="post" name="form1" id="form1">
   <table align="center">
     <tr valign="baseline">
@@ -161,9 +162,8 @@ $totalRows_get_subjects = mysql_num_rows($get_subjects);
   </form>
   <?php } while ($row_get_subjects = mysql_fetch_assoc($get_subjects)); ?>
     </table>
-<p>&nbsp;</p>
-</body>
-</html>
+<?php require_once $config['base_url'].'/admin/template/includes/footer.php'; ?>
+
 <?php
 mysql_free_result($get_subjects);
 ?>

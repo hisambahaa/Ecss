@@ -1,11 +1,7 @@
 <?php 
-
-session_start();
-
-require_once('../Connections/config.php');
-require_once('../Connections/dares_conn.php');
-
 if(isset($_SESSION['User_id'])) header('location:'.$config['http_base_url']."admin/index.php");
+require_once('../Connections/boot.php');
+
 
 //require_once("../Connections/composer.php");
 

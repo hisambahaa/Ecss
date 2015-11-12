@@ -1,6 +1,7 @@
-<?php require_once('../../Connections/dares_conn.php'); ?>
-<?php require_once('../../Connections/perm.php'); ?>
-<?php
+<?php 
+
+require_once('../../Connections/boot.php');
+
 $editFormAction = $_SERVER['PHP_SELF'];
 if (isset($_SERVER['QUERY_STRING'])) {
   $editFormAction .= "?" . htmlentities($_SERVER['QUERY_STRING']);
@@ -34,17 +35,13 @@ $query_get_term = sprintf("SELECT * FROM academy_structure_term WHERE term_year_
 $get_term = mysql_query($query_get_term, $dares_conn) or die(mysql_error());
 $row_get_term = mysql_fetch_assoc($get_term);
 $totalRows_get_term = mysql_num_rows($get_term);
-?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
-<script src="../../SpryAssets/SpryValidationTextField.js" type="text/javascript"></script>
-<link href="../../SpryAssets/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
-</head>
 
-<body>
+// html page title
+$pageTitle='بلانكك';
+// require page header
+require_once $config['base_url'].'/admin/template/includes/header.php';
+
+?>
 <form action="<?php echo $editFormAction; ?>" method="post" name="form1" id="form1">
   <table align="center">
     <tr valign="baseline">
@@ -82,12 +79,8 @@ $totalRows_get_term = mysql_num_rows($get_term);
   </form>
   <?php } while ($row_get_term = mysql_fetch_assoc($get_term)); ?>
     </table>
-<p>&nbsp;</p>
-<script type="text/javascript">
-var sprytextfield1 = new Spry.Widget.ValidationTextField("sprytextfield1");
-</script>
-</body>
-</html>
+<?php require_once $config['base_url'].'/admin/template/includes/footer.php'; ?>
+
 <?php
 mysql_free_result($get_term);
 ?>

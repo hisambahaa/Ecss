@@ -24,4 +24,3 @@ function isAuthorized($strUsers, $strGroups, $UserName, $UserGroup) {
   } 
   return $isValid; 
 }
- ?>

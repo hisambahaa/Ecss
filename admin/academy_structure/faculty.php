@@ -26,11 +26,13 @@ $totalRows_get_faculty = mysql_num_rows($get_faculty);
 <script src="../../SpryAssets/SpryValidationTextField.js" type="text/javascript"></script>
 <link href="../../SpryAssets/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
 <?php
+// html page title
 $pageTitle='بلانكك';
-require_once $config['base_url'].'/admin/template/includes/header.php'; ?>
+// require page header
+require_once $config['base_url'].'/admin/template/includes/header.php';
+?>
 <!-- page content -->
-<div class="right_col" role="main">
-  <div class="row">
+
     <div class="col-md-12 col-sm-12 col-xs-12">
       <div class="x_panel" style="min-height:600px;">
         <div class="x_title">
@@ -94,8 +96,7 @@ require_once $config['base_url'].'/admin/template/includes/header.php'; ?>
 
         </div>
       </div>
-    </div>
-  </div>
+
 
  <!-- icheck -->
         <script src="<?php echo $config['http_base_url'] ?>admin/template/js/icheck/icheck.min.js"></script>

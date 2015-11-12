@@ -45,7 +45,8 @@ $MM_donotCheckaccess = "false";
 
 
 
-$MM_restrictGoTo = "access_fail.php";
+$MM_restrictGoTo = $config['http_base_url']."index.php";
+
 if (!((isset($_SESSION['User_name'])) && (isAuthorized("",$MM_authorizedUsers, $_SESSION['User_name'], $_SESSION['User_roles'])))) {   
   $MM_qsChar = "?";
   $MM_referrer = $_SERVER['PHP_SELF'];
@@ -56,5 +57,3 @@ if (!((isset($_SESSION['User_name'])) && (isAuthorized("",$MM_authorizedUsers, $
   header("Location: ". $MM_restrictGoTo); 
   exit;
 }
-
-?>
