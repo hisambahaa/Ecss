@@ -2,7 +2,6 @@
 
 require_once('../Connections/boot.php');
 
-
 //require_once("../Connections/composer.php");
 
 if (!function_exists("GetSQLValueString")) {
