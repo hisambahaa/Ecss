@@ -41,11 +41,13 @@ session_start();
           <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
           <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
-
+<script>
+    var ROOT_PATH = "<?php echo $config['http_base_url'] ?>";
+</script>
 </head>
 
 
-<body class="nav-md">
+<body class="<?php echo (isset($_SESSION['sidebar_show']) || isset($_COOKIE['sidebar_show'])) ? "nav-sm" : 'nav-md' ?>">
 
     <div class="container body">
 

@@ -27,6 +27,7 @@
     <!-- moris js -->
     <script src="<?php echo $config['http_base_url'].'admin/template/';?>js/moris/raphael-min.js"></script>
     <script src="<?php echo $config['http_base_url'].'admin/template/';?>js/moris/morris.js"></script>
+    <script src="<?php echo $config['http_base_url'].'admin/template/';?>js/ecss.min.js"></script>
     
 
 </body>

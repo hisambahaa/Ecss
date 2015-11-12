@@ -118,7 +118,7 @@ require_once __DIR__ .'/../../../Connections/config.php';
 
                     </div>
                     <!-- /menu footer buttons -->
-                    <div class="sidebar-footer hidden-small">
+                    <div class="sidebar-footer hidden-small" style="display:<?php echo (isset($_SESSION['sidebar_show']) || isset($_COOKIE['sidebar_show'])) ? "none" : 'block' ?>">
                         <a data-toggle="tooltip" data-placement="top" title="Settings">
                             <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
                         </a>
