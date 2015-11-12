@@ -9,13 +9,13 @@ jQuery(document).ready(function($) {
 			dataType: 'json'
 		})
 		.done(function(response) {
-			console.log(response);
+			// console.log(response);
 		})
 		.fail(function() {
-			console.log("error");
+			// console.log("error");
 		})
 		.always(function() {
-			console.log("complete");
+			// console.log("complete");
 		});
 		
 	});

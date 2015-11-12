@@ -1,7 +1,5 @@
-<?php require_once('../Connections/dares_conn.php'); ?>
-<?php require_once('../Connections/prem.php'); ?>
 <?php
-
+require_once "../Connections/boot.php";
 // *** Redirect if username exists
 $MM_flag="MM_insert";
 if (isset($_POST[$MM_flag])) {
@@ -50,17 +48,19 @@ $query_get_prem_categ = "SELECT * FROM sys_permission_category";
 $get_prem_categ = mysql_query($query_get_prem_categ, $dares_conn) or die(mysql_error());
 $row_get_prem_categ = mysql_fetch_assoc($get_prem_categ);
 $totalRows_get_prem_categ = mysql_num_rows($get_prem_categ);
+$pageTitle = "";
+require_once $config['base_url'] . '/admin/template/includes/header.php';
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
-<script src="../SpryAssets/SpryValidationTextField.js" type="text/javascript"></script>
-<link href="../SpryAssets/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
-</head>
 
-<body>
+<div class="right_col" role="main">
+  <div class="row">
+   <div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="x_panel" style="min-height:600px;">
+      <div class="x_title">
+        <h2>الهيكل الاكاديمى والمحتوى العلمى</h2>
+        <div class="clearfix"></div>
+      </div>
+
 <form action="<?php echo $editFormAction; ?>" method="post" name="form1" id="form1">
   <table align="center">
     <tr valign="baseline">
@@ -76,7 +76,7 @@ $totalRows_get_prem_categ = mysql_num_rows($get_prem_categ);
   </table>
   <input type="hidden" name="MM_insert" value="form1" />
 </form>
-<p>&nbsp;</p>
+
     <table align="center">
       <tr valign="baseline">
         <td align="center">Categ_name:</td>
@@ -94,12 +94,14 @@ $totalRows_get_prem_categ = mysql_num_rows($get_prem_categ);
   </form>
   <?php } while ($row_get_prem_categ = mysql_fetch_assoc($get_prem_categ)); ?>
     </table>
-<p>&nbsp;</p>
-<script type="text/javascript">
-var sprytextfield1 = new Spry.Widget.ValidationTextField("sprytextfield1");
-</script>
-</body>
-</html>
+
+
+</div>
+</div>
+</div>
+</div>
+
 <?php
+require_once $config['base_url'] . '/admin/template/includes/footer.php';
 mysql_free_result($get_prem_categ);
 ?>

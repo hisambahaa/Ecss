@@ -43,9 +43,9 @@ require_once $config['base_url'].'/admin/template/includes/header.php'; ?>
           <form action="<?php echo $editFormAction; ?>" method="post" class='form-group' name="form1" id="form1">
             <label class="col-sm-3 control-label">إسم الكلية</label>
             <div class="input-group">
-              <input type="text" name="faculty_name" id="faculty_name" class="form-control">
+              <input type="text" name="faculty_name" autofocus='autofocus' id="faculty_name" class="form-control">
               <span class="input-group-btn">
-              <button type="submit" class="btn btn-primary">اضافة</button> 
+              <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> اضافة</button> 
               </span>
             </div>
 
@@ -62,7 +62,7 @@ require_once $config['base_url'].'/admin/template/includes/header.php'; ?>
                 <td>اسم</td>
                 <td>بواسطة </td>
                 <td>تاريخ الانشاء</td>
-                <td>السنوات الدراسية</td>
+                <td></td>
               </tr>
             </thead>
             <tbody>
@@ -74,15 +74,15 @@ require_once $config['base_url'].'/admin/template/includes/header.php'; ?>
                 <td><?php echo $row_get_faculty['user_fullname']; ?></td>
                 <td><?php echo $row_get_faculty['faculty_created_date']; ?></td>
                 <td>
-                  <a href="year.php?fid=<?php echo $row_get_faculty['faculty_id']; ?>" class="btn btn-success">
+                  <a href="year.php?fid=<?php echo $row_get_faculty['faculty_id']; ?>" class="btn btn-success btn-xs">
                   <i class="fa fa-calendar"></i>
                    السنوات الدراسية
                    </a>
-                   <a href="" class='btn btn-info'>
+                   <a href="" class='btn btn-info btn-xs'>
                     <i class="fa fa-edit"></i>
                      تعديل
                    </a>
-                   <a href="" class='btn btn-danger'>
+                   <a href="" class='btn btn-danger btn-xs'>
                     <i class="fa fa-remove"></i>
                      تعديل
                    </a>

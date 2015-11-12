@@ -1,6 +1,5 @@
-<?php require_once('../Connections/dares_conn.php'); ?>
-<?php require_once('../Connections/perm.php'); ?>
 <?php
+require_once "../Connections/boot.php";
 // *** Redirect if username exists
 $MM_flag="MM_insert";
 if (isset($_POST[$MM_flag])) {
