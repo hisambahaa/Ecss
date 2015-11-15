@@ -3,7 +3,8 @@
 // $project_folder 	= 'Ecss';
 // get the directory path where the application is installed
 
-$project_folder 	= str_replace($_SERVER['DOCUMENT_ROOT'].DIRECTORY_SEPARATOR ,"",str_replace("\\","/",realpath(dirname(__FILE__).DIRECTORY_SEPARATOR."..".DIRECTORY_SEPARATOR)));
+//$project_folder 	= str_replace($_SERVER['DOCUMENT_ROOT'].DIRECTORY_SEPARATOR ,"",str_replace("\\","/",realpath(dirname(__FILE__).DIRECTORY_SEPARATOR."..".DIRECTORY_SEPARATOR)));
+$project_folder 	= "Ecss";
 
 // get the base url of the app , this path can be used to require php files
 //var_dump($project_folder);
