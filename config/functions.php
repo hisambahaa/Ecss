@@ -27,6 +27,8 @@ function isAuthorized($strUsers, $strGroups, $UserName, $UserGroup) {
 
 if(!function_exists('generate_pagination')) {
   function generate_pagination($targetpage ="index.php",$total=0,$per_page=20,$page=null) {
+
+    if($total<=$per_page) echo "";
     global $ecss_lang;
     $adjacents = 3;
 //$per_page = 12; //how many items to show per page
@@ -47,7 +49,9 @@ $lpm1 = $lastpage - 1; //last page minus 1
 
 /** add elements from query string */
 $query_vars = $_GET;
+unset($query_vars['page']);
 
+$query_vars = http_build_query($query_vars);
 /** end add element from query string */
 
 /* CREATE THE PAGINATION */
@@ -57,7 +61,7 @@ if($lastpage > 1)
 { 
   $pagination .= "<div id='pagination'> <ul class='pagination'>";
   if ($page > $counter+1) {
-    $pagination.= "<li><a href=\"$targetpage?page=$prev\">".$ecss_lang['PREV']."</a></li>"; 
+    $pagination.= "<li><a href=\"$targetpage?page=$prev&$query_vars\">".$ecss_lang['PREV']."</a></li>"; 
   }
 
   if ($lastpage < 7 + ($adjacents * 2)) 
@@ -67,7 +71,7 @@ if($lastpage > 1)
       if ($counter == $page)
         $pagination.= "<li class='active'><a href='#' >$counter</a></li>";
       else
-        $pagination.= "<li><a href=\"$targetpage?page=$counter\">$counter</a></li>"; 
+        $pagination.= "<li><a href=\"$targetpage?page=$counter&$query_vars\">$counter</a></li>"; 
     }
   }
 elseif($lastpage > 5 + ($adjacents * 2)) //enough pages to hide some
@@ -80,7 +84,7 @@ elseif($lastpage > 5 + ($adjacents * 2)) //enough pages to hide some
       if ($counter == $page)
         $pagination.= "<li class='active'><a href='#' >$counter</a></li>";
       else
-        $pagination.= "<li><a href=\"$targetpage?page=$counter\">$counter</a></li>"; 
+        $pagination.= "<li><a href=\"$targetpage?page=$counter&$query_vars\">$counter</a></li>"; 
     }
     $pagination.= "<li><a>...</a></li>";
     $pagination.= "<li><a href=\"$targetpage?page=$lpm1\">$lpm1</a></li>";
@@ -97,7 +101,7 @@ elseif($lastpage > 5 + ($adjacents * 2)) //enough pages to hide some
       if ($counter == $page)
         $pagination.= "<li class='active'><a href='#' >$counter</a></li>";
       else
-        $pagination.= "<li><a href=\"$targetpage?page=$counter\">$counter</a></li>"; 
+        $pagination.= "<li><a href=\"$targetpage?page=$counter&$query_vars\">$counter</a></li>"; 
     }
     $pagination.= "<li><a>...</a></li>";
     $pagination.= "<li><a href=\"$targetpage?page=$lpm1\">$lpm1</a></li>";
@@ -115,7 +119,7 @@ elseif($lastpage > 5 + ($adjacents * 2)) //enough pages to hide some
       if ($counter == $page)
         $pagination.= "<li class='active'><a href='#' >$counter</a></li>";
       else
-        $pagination.= "<li><a href=\"$targetpage?page=$counter\">$counter</a></li>"; 
+        $pagination.= "<li><a href=\"$targetpage?page=$counter&$query_vars\">$counter</a></li>"; 
     }
   }
 }

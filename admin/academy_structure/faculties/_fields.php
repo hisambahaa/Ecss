@@ -2,7 +2,7 @@
     <label class="control-label col-md-3" for="faculty_name"><?php echo $ecss_lang['ACADEMY_NAME'] ?><span class="required">*</span>
     </label>
     <div class="col-md-7">
-    <input type="text" value='<?php !empty($faculty) ? $faculty['name'] : null ?>' name='faculty_name' id="faculty_name" required="required" class="form-control col-md-7 col-xs-12" />
+    <input type="text" value='<?php echo !empty($faculty) ? $faculty['faculty_name'] : null ?>' name='faculty_name' id="faculty_name" required="required" class="form-control col-md-7 col-xs-12" />
     </div>
 </div>
 <div class="ln_solid"></div>
@@ -15,3 +15,6 @@
             </button>
         </div>
     </div>
+    <select name="" id="" class='form-control'>
+        <option value="الكل">الكل</option>
+    </select>

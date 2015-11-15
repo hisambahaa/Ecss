@@ -8,6 +8,7 @@ $ecss_lang = array(
 	'PREV'			=>'السابق',
 	'ACTIONS'		=>'العمليات',
 	'ADD_NEW'		=>'أضف جديد',
+	'DELETE_ALL'	=>'حذف الكل',
 	'SAVE_UPDATES'	=>'حفظ التعديلات',
 	// Academy
 	'ACADEMY_STRUCTURE'		=> [
@@ -16,6 +17,8 @@ $ecss_lang = array(
 							'NO_ITEMS'	 =>'لا يوجد بيانات في الصفحة التي تطلبها.',
 							'DELETE_SUCCESS'=>'تم حذف الكلية بنجاح.',
 							'DELETE_ERROR'=>'وقع خلل لم يتم حذف الكلية.',
+							'MASS_DELETE_SUCCESS'=>'تم حذف الكليات بنجاح',
+							'MASS_DELETE_ERROR'=>'وقع خلل لم يتم حذف الكليات',
 						]
 	],
 	'ACADEMY_NAME'=>'إسم الكلية',

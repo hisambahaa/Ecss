@@ -42,17 +42,13 @@ use \McKay\Flash;
 
 <?php foreach(Flash::all() as $flash) { ?>
 <script>
-var stack_center = {"dir1": "down", "dir2": "right", "firstpos1": 25, "firstpos2": ($(window).width() / 2) - (Number(PNotify.prototype.options.width.replace(/\D/g, '')) / 2)};
-$(window).resize(function(){
-    stack_center.firstpos2 = ($(window).width() / 2) - (Number(PNotify.prototype.options.width.replace(/\D/g, '')) / 2);
-});
+
      new PNotify({
             type:"<?php echo $flash['type'] == 'notice' ? 'warning' : $flash['type'] ?>",
-            text: '<?php echo $flash['message']; ?>',
-            stack: stack_center
+            text: '<?php echo $flash['message']; ?>'
         });
 </script>
-<? } Flash::clear(); ?>
+<?php } Flash::clear(); ?>
 
 </body>
 

@@ -3,12 +3,6 @@
 require_once('../../../config/boot.php');
 
 
-
-$editFormAction = $_SERVER['PHP_SELF'];
-if (isset($_SERVER['QUERY_STRING'])) {
-  $editFormAction .= "?" . htmlentities($_SERVER['QUERY_STRING']);
-}
-
 /**  start pagination */
 $pagination_per_page  = 10;
 $pagination_target    = 'index.php';
@@ -46,15 +40,19 @@ require_once $config['base_url'].'/admin/template/includes/header.php';
           <h2>الكليات</h2>
            <div class="clearfix"></div>
          </div>
-         <div class="row">
+         
+          <div class="x_content">
+          <div class="row">
            <div class="col-md-12">
              <a href="create.php" class="btn btn-primary pull-left">
                <i class="fa fa-plus"></i> <?php echo $ecss_lang['ADD_NEW'] ?>
              </a>
+             <div class="clearfix"></div>
+             <br>
            </div>
          </div>
-          <div class="x_content">
           <?php if(!empty($total)): ?>
+            <form action="delete.php?action=mass-delete" method='POST'>
           <table align="center" class="table table-striped responsive-utilities table-bordered jambo_table bulk_action">
             <thead>
               <tr class="headings">
@@ -69,7 +67,7 @@ require_once $config['base_url'].'/admin/template/includes/header.php';
             <tbody>
               <?php do { ?>
               <tr>
-                <td><input type="checkbox" name='table_records' class='flat'></td>
+                <td><input type="checkbox" value='<?php echo $row_get_faculty['faculty_id']; ?>' name='table_records[]' class='flat'></td>
                 <td><?php echo $row_get_faculty['faculty_id']; ?></td>
                 <td><?php echo $row_get_faculty['faculty_name']; ?></td>
                 <td><?php echo $row_get_faculty['user_fullname']; ?></td>
@@ -92,6 +90,14 @@ require_once $config['base_url'].'/admin/template/includes/header.php';
               <?php } while ($row_get_faculty = mysql_fetch_assoc($get_faculty_recordset_limit)); ?>
             </tbody>
           </table>
+          <button class="btn btn-danger">
+            <i class="fa fa-trash"></i>
+            <?php echo $ecss_lang['DELETE_ALL'] ?>
+          </button>
+          <input type="hidden" name='action' value='mass-delete'>
+          </form>
+
+
         <?php else: ?>
           <div class="alert alert-info">
             <i class="fa fa-info-circle"></i> <?php echo $ecss_lang['ACADEMY_STRUCTURE']['FACULTY']['NO_ITEMS'] ?>

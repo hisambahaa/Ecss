@@ -6354,3 +6354,7 @@ ul.notifications {
     float: right;
     opacity: 1;
 }
+
+select.form-control {
+    padding:3px 6px 0px 12px;
+}
