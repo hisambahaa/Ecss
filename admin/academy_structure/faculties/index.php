@@ -9,16 +9,28 @@ if (isset($_SERVER['QUERY_STRING'])) {
   $editFormAction .= "?" . htmlentities($_SERVER['QUERY_STRING']);
 }
 
-
+/**  start pagination */
+$pagination_per_page  = 20;
+$pagination_target    = 'index.php';
+$page                 = 0;
+if (isset($_GET['page'])) $page = $_GET['page'];
+$pagination_start     = $page * $pagination_per_page;
+/** end pagination */
 
 mysql_select_db($database_dares_conn, $dares_conn);
 $query_get_faculty = "SELECT academy_structure_faculty . * , sys_users.user_fullname
 FROM academy_structure_faculty
 INNER JOIN sys_users ON sys_users.user_id = academy_structure_faculty.faculty_created_by
 ORDER BY academy_structure_faculty.faculty_id DESC";
-$get_faculty = mysql_query($query_get_faculty, $dares_conn) or die(mysql_error());
-$row_get_faculty = mysql_fetch_assoc($get_faculty);
-$totalRows_get_faculty = mysql_num_rows($get_faculty);
+$query_get_faculty_limit = sprintf("%s LIMIT %d, %d", $query_get_faculty, $pagination_start, $pagination_per_page);
+$get_faculty_recordset = mysql_query($query_get_faculty, $dares_conn) or die(mysql_error());
+$get_faculty_recordset_limit = mysql_query($query_get_faculty_limit, $dares_conn) or die(mysql_error());
+
+$row_get_faculty = mysql_fetch_assoc($get_faculty_recordset_limit);
+$pagination_total = mysql_num_rows($get_faculty_recordset);
+
+
+
 
 // html page title
 $pageTitle='بلانكك';
@@ -76,11 +88,11 @@ require_once $config['base_url'].'/admin/template/includes/header.php';
                    </a>
                   </td>
               </tr>
-              <?php } while ($row_get_faculty = mysql_fetch_assoc($get_faculty)); ?>
+              <?php } while ($row_get_faculty = mysql_fetch_assoc($get_faculty_recordset_limit)); ?>
             </tbody>
           </table>
 
-          <?php generate_pagination('index.php' ,20); ?>
+          <?php generate_pagination($pagination_target ,$pagination_total ,$pagination_per_page); ?>
 </div>
         </div>
       </div>
@@ -92,5 +104,5 @@ require_once $config['base_url'].'/admin/template/includes/header.php';
 
 <?php require_once $config['base_url'].'/admin/template/includes/footer.php'; ?>
 <?php
-mysql_free_result($get_faculty);
+mysql_free_result($get_faculty_recordset_limit);
 ?>
