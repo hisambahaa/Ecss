@@ -1,7 +1,6 @@
-<?php require_once $config['base_url'].'/vendor/autoload.php';
+<?php 
 
-use League\Event\Emitter;
+require_once $config['base_url'].'/vendor/autoload.php';
 
-$emitter = new Emitter;
 
 ?>

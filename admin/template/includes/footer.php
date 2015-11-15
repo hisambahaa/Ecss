@@ -1,3 +1,6 @@
+<?php
+use \McKay\Flash;
+ ?>
 </div>
 </div> 
 
@@ -30,6 +33,21 @@
     <script src="<?php echo $config['http_base_url'].'admin/template/';?>js/moris/morris.js"></script>
     <script src="<?php echo $config['http_base_url'].'admin/template/';?>js/ecss.min.js"></script>
     
+    <script src="<?php echo $config['http_base_url'] ?>admin/template/js/parsley/parsley.min.js"></script>
+    <script src="<?php echo $config['http_base_url'] ?>admin/template/js/parsley/ar.js"></script>
+
+    <script type="text/javascript" src="<?php echo $config['http_base_url'] ?>admin/template/js/notify/pnotify.core.js"></script>
+    <script type="text/javascript" src="<?php echo $config['http_base_url'] ?>admin/template/js/notify/pnotify.buttons.js"></script>
+    <script type="text/javascript" src="<?php echo $config['http_base_url'] ?>admin/template/js/notify/pnotify.nonblock.js"></script>
+
+<? foreach(Flash::all() as $flash) { ?>
+<script>
+     new PNotify({
+            type:"<?php echo $flash['type'] == 'notice' ? 'warning' : $flash['type'] ?>",
+            text: '<?php echo $flash['message']; ?>'
+        });
+</script>
+<? } Flash::clear(); ?>
 
 </body>
 

@@ -50,5 +50,53 @@
             "event",
             "listener"
         ]
+    },
+    {
+        "name": "mckay/flash",
+        "version": "v1.0.4",
+        "version_normalized": "1.0.4.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/mckay-software/flash.php.git",
+            "reference": "9af01828637bb8e18a46896dd44e501f71ebf6c3"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/mckay-software/flash.php/zipball/9af01828637bb8e18a46896dd44e501f71ebf6c3",
+            "reference": "9af01828637bb8e18a46896dd44e501f71ebf6c3",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "time": "2015-04-30 21:38:32",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "McKay\\": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Félix Saparelli",
+                "email": "felix.saparelli@mckay.co.nz",
+                "homepage": "https://passcod.name"
+            },
+            {
+                "name": "McKay Software",
+                "email": "software@mckay.co.nz"
+            }
+        ],
+        "description": "Handy flash messages.",
+        "keywords": [
+            "flash",
+            "messages",
+            "session"
+        ]
     }
 ]
