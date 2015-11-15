@@ -26,7 +26,7 @@ function isAuthorized($strUsers, $strGroups, $UserName, $UserGroup) {
 }
 
 if(!function_exists('generate_pagination')) {
-function generate_pagination($targetpage ="index.php",$page=null,$total=0) {
+function generate_pagination($targetpage ="index.php",$total=0,$page=null) {
 $adjacents = 3;
 $limit = 12; //how many items to show per page
 if(empty($page)) $page = $_GET['page'];
@@ -44,10 +44,7 @@ $next = $page + 1; //next page is current page + 1
 $lastpage = ceil($total/$limit); //lastpage.
 $lpm1 = $lastpage - 1; //last page minus 1
 
-$sql2 = "select * from table name where 1=1";
-$sql2 .= " order by id desc limit $start ,$limit ";
-$sql_query = mysql_query($sql2); 
-$curnm = mysql_num_rows($sql_query);
+
 
 /* CREATE THE PAGINATION */
 

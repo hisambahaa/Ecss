@@ -40,10 +40,8 @@ require_once $config['base_url'].'/admin/template/includes/header.php';
              </a>
            </div>
          </div>
-          <div class="row">
-        
-          </div>
-          <p>&nbsp;</p>
+          <div class="x_content">
+          
           <table align="center" class="table table-striped responsive-utilities table-bordered jambo_table bulk_action">
             <thead>
               <tr class="headings">
@@ -82,6 +80,8 @@ require_once $config['base_url'].'/admin/template/includes/header.php';
             </tbody>
           </table>
 
+          <?php generate_pagination('index.php' ,20); ?>
+</div>
         </div>
       </div>
 
@@ -89,48 +89,7 @@ require_once $config['base_url'].'/admin/template/includes/header.php';
 <!-- icheck -->
 <script src="<?php echo $config['http_base_url'] ?>admin/template/js/validator/validator.js"></script>
 <script src="<?php echo $config['http_base_url'] ?>admin/template/js/icheck/icheck.min.js"></script>
-<script>
- $(document).ready(function () {
 
-                $('input.tableflat').iCheck({
-                    checkboxClass: 'icheckbox_flat-green',
-                    radioClass: 'iradio_flat-green'
-                });
-
-                 // initialize the validator function
-        validator.message['date'] = 'not a real date';
-
-        // validate a field on "blur" event, a 'select' on 'change' event & a '.reuired' classed multifield on 'keyup':
-        $('form')
-            .on('blur', 'input[required], input.optional, select.required', validator.checkField)
-            .on('change', 'select.required', validator.checkField)
-            .on('keypress', 'input[required][pattern]', validator.keypress);
-
-        $('.multi.required')
-            .on('keyup blur', 'input', function () {
-                validator.checkField.apply($(this).siblings().last()[0]);
-            });
-
-        // bind the validation to the form submit event
-        //$('#send').click('submit');//.prop('disabled', true);
-
-        $('form').submit(function (e) {
-            e.preventDefault();
-            var submit = true;
-            // evaluate the form using generic validaing
-            if (!validator.checkAll($(this))) {
-                submit = false;
-            }
-
-            if (submit)
-                this.submit();
-            return false;
-        });
-            });
-
- 
-
-</script>
 <?php require_once $config['base_url'].'/admin/template/includes/footer.php'; ?>
 <?php
 mysql_free_result($get_faculty);
