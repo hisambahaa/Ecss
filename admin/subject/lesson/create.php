@@ -1,6 +1,6 @@
-<?php require_once('../../../config/boot.php');
-use \McKay\Flash;
-
+<?php require_once('../../../config/boot.php'); ?>
+<?php use \McKay\Flash;?>
+<?php
 if (!function_exists("GetSQLValueString")) {
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
 {
@@ -54,7 +54,7 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form1")) {
     $insertGoTo .= (strpos($insertGoTo, '?')) ? "&" : "?";
     $insertGoTo .= $_SERVER['QUERY_STRING'].'subid='.$_POST['lesson_sub_id'];
   }
-  Flash::success("تم اضافة الدرس بنجاح");
+  Flash::success($ecss_lang['Subject']['lesson']['ADD_SUCCESS']);
   header(sprintf("Location: %s", $insertGoTo));
 }
 ?>
@@ -69,7 +69,7 @@ require_once $config['base_url'].'/admin/template/includes/header.php';
     <div class="col-md-12 col-sm-12 col-xs-12">
       <div class="x_panel" style="min-height:600px;">
         <div class="x_title">
-          <h2>الدروس</h2>
+          <h2> <?php echo $ecss_lang['Subject']['lesson']['ADD_LESSON'] ?></h2>
            <div class="clearfix"></div>
          </div>
          <div class="x_content">
@@ -77,8 +77,8 @@ require_once $config['base_url'].'/admin/template/includes/header.php';
 <form action="<?php echo $editFormAction; ?>" method="post" name="form1" id="form1" class="form-horizontal form-label-left" data-parsley-validate>
 
      <div class="form-group">
-          <label class="control-label col-md-3" for="faculty_name">
-          Lesson_name<?php //echo $ecss_lang['ACADEMY_NAME'] ?>
+          <label class="control-label col-md-3" for="lesson_name">
+          <?php echo $ecss_lang['Subject']['lesson']['LESSON_NAME'] ?>
           <span class="required">*</span>
           </label>
           <div class="col-md-7">
@@ -87,8 +87,8 @@ require_once $config['base_url'].'/admin/template/includes/header.php';
       </div>
       
       <div class="form-group">
-          <label class="control-label col-md-3" for="faculty_name">
-          Lesson_order<?php //echo $ecss_lang['ACADEMY_NAME'] ?>
+          <label class="control-label col-md-3" for="lesson_order">
+          <?php echo $ecss_lang['Subject']['lesson']['LESSON_ORDER'] ?>
           <span class="required">*</span>
           </label>
           <div class="col-md-7">
@@ -97,12 +97,12 @@ require_once $config['base_url'].'/admin/template/includes/header.php';
       </div>
       
       <div class="form-group">
-          <label class="control-label col-md-3" for="faculty_name">
-          Lesson_type<?php //echo $ecss_lang['ACADEMY_NAME'] ?>
+          <label class="control-label col-md-3" for="lesson_type">
+          <?php echo $ecss_lang['Subject']['lesson']['LESSON_TYPE'] ?>
           <span class="required">*</span>
           </label>
           <div class="col-md-7">
-              <select name="lesson_type">
+      <select name="lesson_type" class="form-control">
         <option value="1" <?php if (!(strcmp(1, ""))) {echo "SELECTED";} ?>>درس</option>
         <option value="0" <?php if (!(strcmp(0, ""))) {echo "SELECTED";} ?>>مقدمة</option>
       </select>
@@ -110,12 +110,12 @@ require_once $config['base_url'].'/admin/template/includes/header.php';
       </div>
       
       <div class="form-group">
-          <label class="control-label col-md-3" for="faculty_name">
-          Lesson_state<?php //echo $ecss_lang['ACADEMY_NAME'] ?>
+          <label class="control-label col-md-3" for="lesson_state">
+          <?php echo $ecss_lang['Subject']['lesson']['LESSON_STATE'] ?>
           <span class="required">*</span>
           </label>
           <div class="col-md-7">
-          <select name="lesson_state">
+      <select name="lesson_state" class="form-control">
         <option value="1" <?php if (!(strcmp(1, ""))) {echo "SELECTED";} ?>>نشط</option>
         <option value="0" <?php if (!(strcmp(0, ""))) {echo "SELECTED";} ?>>غير نشط</option>
       </select>
@@ -134,7 +134,7 @@ require_once $config['base_url'].'/admin/template/includes/header.php';
         </div>
         
   <input type="hidden" name="lesson_sub_id" value="<?php echo $_GET['subid']; ?>" />
-  <input type="hidden" name="lesson_created_by" value="1" />
+  <input type="hidden" name="lesson_created_by" value="<?php echo $_SESSION['User_id']; ?>" />
   <input type="hidden" name="MM_insert" value="form1" />
 </form>
 <script src="<?php echo $config['http_base_url'] ?>admin/template/js/icheck/icheck.min.js"></script>

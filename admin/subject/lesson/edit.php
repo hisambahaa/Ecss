@@ -1,4 +1,5 @@
-<?php require_once('../../../Connections/dares_conn.php'); ?>
+<?php require_once('../../../config/boot.php'); ?>
+<?php use \McKay\Flash;?>
 <?php
 if (!function_exists("GetSQLValueString")) {
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
@@ -52,6 +53,7 @@ if ((isset($_POST["MM_update"])) && ($_POST["MM_update"] == "form1")) {
     $updateGoTo .= (strpos($updateGoTo, '?')) ? "&" : "?";
     $updateGoTo .= $_SERVER['QUERY_STRING'];
   }
+  Flash::success($ecss_lang['Subject']['lesson']['EDIT_SUCCESS']);
   header(sprintf("Location: %s", $updateGoTo));
 }
 
@@ -65,43 +67,80 @@ $get_lesson_by_lesid = mysql_query($query_get_lesson_by_lesid, $dares_conn) or d
 $row_get_lesson_by_lesid = mysql_fetch_assoc($get_lesson_by_lesid);
 $totalRows_get_lesson_by_lesid = mysql_num_rows($get_lesson_by_lesid);
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
-</head>
 
-<body>
-<form action="<?php echo $editFormAction; ?>" method="post" name="form1" id="form1">
-  <table align="center">
-    <tr valign="baseline">
-      <td nowrap="nowrap" align="right">Lesson_name:</td>
-      <td><input type="text" name="lesson_name" value="<?php echo htmlentities($row_get_lesson_by_lesid['lesson_name'], ENT_COMPAT, 'utf-8'); ?>" size="32" /></td>
-    </tr>
-    <tr valign="baseline">
-      <td nowrap="nowrap" align="right">Lesson_order:</td>
-      <td><input type="text" name="lesson_order" value="<?php echo htmlentities($row_get_lesson_by_lesid['lesson_order'], ENT_COMPAT, 'utf-8'); ?>" size="32" /></td>
-    </tr>
-    <tr valign="baseline">
-      <td nowrap="nowrap" align="right">Lesson_type:</td>
-      <td><select name="lesson_type">
+<?php 
+// html page title
+$pageTitle='تعديل درس';
+// require page header
+require_once $config['base_url'].'/admin/template/includes/header.php';
+?>
+<!-- page content -->
+
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <div class="x_panel" style="min-height:600px;">
+        <div class="x_title">
+          <h2><?php echo $ecss_lang['Subject']['lesson']['UPDATE_LESSON'] ?></h2>
+           <div class="clearfix"></div>
+         </div>
+         <div class="x_content">
+<form action="<?php echo $editFormAction; ?>" method="post" name="form1" id="form1" class="form-horizontal form-label-left" data-parsley-validate>
+  
+       <div class="form-group">
+          <label class="control-label col-md-3" for="lesson_name">
+          <?php echo $ecss_lang['Subject']['lesson']['LESSON_NAME'] ?>
+          <span class="required">*</span>
+          </label>
+          <div class="col-md-7">
+              <input type="text" name='lesson_name' id="lesson_name" value="<?php echo htmlentities($row_get_lesson_by_lesid['lesson_name'], ENT_COMPAT, 'utf-8'); ?>" required="required" class="form-control col-md-7 col-xs-12" />
+          </div>
+      </div>
+      
+      <div class="form-group">
+          <label class="control-label col-md-3" for="lesson_order">
+          <?php echo $ecss_lang['Subject']['lesson']['LESSON_ORDER'] ?>
+          <span class="required">*</span>
+          </label>
+          <div class="col-md-7">
+              <input type="text" name='lesson_order' id="lesson_order" value="<?php echo htmlentities($row_get_lesson_by_lesid['lesson_order'], ENT_COMPAT, 'utf-8'); ?>" required="required" class="form-control col-md-7 col-xs-12" />
+          </div>
+      </div>
+      
+      <div class="form-group">
+          <label class="control-label col-md-3" for="lesson_type">
+          <?php echo $ecss_lang['Subject']['lesson']['LESSON_TYPE'] ?>
+          <span class="required">*</span>
+          </label>
+          <div class="col-md-7">
+              <select name="lesson_type" class="form-control">
         <option value="1" <?php if (!(strcmp(1, htmlentities($row_get_lesson_by_lesid['lesson_type'], ENT_COMPAT, 'utf-8')))) {echo "SELECTED";} ?>>درس</option>
         <option value="0" <?php if (!(strcmp(0, htmlentities($row_get_lesson_by_lesid['lesson_type'], ENT_COMPAT, 'utf-8')))) {echo "SELECTED";} ?>>مقدمة</option>
-      </select></td>
-    </tr>
-    <tr valign="baseline">
-      <td nowrap="nowrap" align="right">Lesson_state:</td>
-      <td><select name="lesson_state">
+      </select>
+          </div>
+      </div>
+      
+      <div class="form-group">
+          <label class="control-label col-md-3" for="Lesson_state">
+          <?php echo $ecss_lang['Subject']['lesson']['LESSON_STATE'] ?>
+          <span class="required">*</span>
+          </label>
+          <div class="col-md-7">
+             <select name="lesson_state" class="form-control">
         <option value="1" <?php if (!(strcmp(1, htmlentities($row_get_lesson_by_lesid['lesson_state'], ENT_COMPAT, 'utf-8')))) {echo "SELECTED";} ?>>نشط</option>
         <option value="0" <?php if (!(strcmp(0, htmlentities($row_get_lesson_by_lesid['lesson_state'], ENT_COMPAT, 'utf-8')))) {echo "SELECTED";} ?>>غير نشط</option>
-      </select></td>
-    </tr>
-    <tr valign="baseline">
-      <td nowrap="nowrap" align="right">&nbsp;</td>
-      <td><input type="submit" value="Update record" /></td>
-    </tr>
-  </table>
+      </select>
+          </div>
+      </div>
+      
+  <div class="ln_solid"></div>
+   <div class="form-group">
+            <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                <a href='index.php?subid=<?php echo $_GET['subid']; ?>' class="btn btn-default pull-left">
+                <i class="fa fa-close"></i> <?php echo $ecss_lang['CANCEL'] ?></a>
+                <button type="submit" class="btn btn-success pull-left">
+                <i class="fa fa-save"></i> <?php echo $ecss_lang['SUBMIT'] ?>
+                </button>
+            </div>
+        </div>
   <input type="hidden" name="MM_update" value="form1" />
   <input type="hidden" name="lesson_id" value="<?php echo $row_get_lesson_by_lesid['lesson_id']; ?>" />
 </form>
