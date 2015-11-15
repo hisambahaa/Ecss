@@ -29,7 +29,7 @@ if(!function_exists('generate_pagination')) {
 function generate_pagination($targetpage ="index.php",$total=0,$per_page=20,$page=null) {
   global $ecss_lang;
 $adjacents = 3;
-$per_page = 12; //how many items to show per page
+//$per_page = 12; //how many items to show per page
 if(empty($page)) $page = !empty($_GET['page']) ? $_GET['page'] : 1;
 
 if($page){ 
@@ -82,7 +82,7 @@ $pagination.= "<li class='active'><a href='#' >$counter</a></li>";
 else
 $pagination.= "<li><a href=\"$targetpage?page=$counter\">$counter</a></li>"; 
 }
-$pagination.= "<li>...</li>";
+$pagination.= "<li><a>...</a></li>";
 $pagination.= "<li><a href=\"$targetpage?page=$lpm1\">$lpm1</a></li>";
 $pagination.= "<li><a href=\"$targetpage?page=$lastpage\">$lastpage</a></li>"; 
 }
@@ -91,7 +91,7 @@ elseif($lastpage - ($adjacents * 2) > $page && $page > ($adjacents * 2))
 {
 $pagination.= "<li><a href=\"$targetpage?page=1\">1</a></li>";
 $pagination.= "<li><a href=\"$targetpage?page=2\">2</a></li>";
-$pagination.= "<li>...</li>";
+$pagination.= "<li><a>...</a></li>";
 for ($counter = $page - $adjacents; $counter <= $page + $adjacents; $counter++)
 {
 if ($counter == $page)
@@ -99,7 +99,7 @@ $pagination.= "<li class='active'><a href='#' >$counter</a></li>";
 else
 $pagination.= "<li><a href=\"$targetpage?page=$counter\">$counter</a></li>"; 
 }
-$pagination.= "<li>...</li>";
+$pagination.= "<li><a>...</a></li>";
 $pagination.= "<li><a href=\"$targetpage?page=$lpm1\">$lpm1</a></li>";
 $pagination.= "<li><a href=\"$targetpage?page=$lastpage\">$lastpage</a></li>"; 
 }
@@ -108,7 +108,7 @@ else
 {
 $pagination.= "<li><a href=\"$targetpage?page=1\">1</a></li>";
 $pagination.= "<li><a href=\"$targetpage?page=2\">2</a></li>";
-$pagination.= "<li>...</li>";
+$pagination.= "<li><a>...</a></li>";
 for ($counter = $lastpage - (2 + ($adjacents * 2)); $counter <= $lastpage; 
 $counter++)
 {

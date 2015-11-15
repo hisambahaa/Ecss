@@ -10,7 +10,7 @@ if (isset($_SERVER['QUERY_STRING'])) {
 }
 
 /**  start pagination */
-$pagination_per_page  = 20;
+$pagination_per_page  = 2;
 $pagination_target    = 'index.php';
 $page                 = 0;
 if (isset($_GET['page'])) $page = $_GET['page'];
