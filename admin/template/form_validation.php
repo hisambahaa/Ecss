@@ -368,7 +368,7 @@
 
     <script src="js/custom.js"></script>
     <!-- form validation -->
-    <script src="js/validato/rvalidator.js"></script>
+    <script src="js/validator/validator.js"></script>
     <script>
         // initialize the validator function
         validator.message['date'] = 'not a real date';
