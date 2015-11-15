@@ -45,7 +45,10 @@ $next = $page + 1; //next page is current page + 1
 $lastpage = ceil($total/$per_page); //lastpage.
 $lpm1 = $lastpage - 1; //last page minus 1
 
+/** add elements from query string */
+$query_vars = $_GET;
 
+/** end add element from query string */
 
 /* CREATE THE PAGINATION */
 $counter = 0;

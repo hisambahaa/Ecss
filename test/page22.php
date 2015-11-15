@@ -1,4 +1,4 @@
-<?php require_once('../Connections/dares_conn.php'); ?>
+<?php require_once('../config/boot.php'); ?>
 <?php
 if (!function_exists("GetSQLValueString")) {
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
@@ -33,8 +33,8 @@ function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDe
 
 $maxRows_get_faculty = 7;
 $pageNum_get_faculty = 0;
-if (isset($_GET['pageNum_get_faculty'])) {
-  $pageNum_get_faculty = $_GET['pageNum_get_faculty'];
+if (isset($_GET['page'])) {
+  $pageNum_get_faculty = $_GET['page'];
 }
 $startRow_get_faculty = $pageNum_get_faculty * $maxRows_get_faculty;
 
@@ -76,6 +76,9 @@ $totalPages_get_faculty = ceil($totalRows_get_faculty/$maxRows_get_faculty)-1;
     </tr>
     <?php } while ($row_get_faculty = mysql_fetch_assoc($get_faculty)); ?>
 </table>
+<?php 
+generate_pagination(null ,$totalRows_get_faculty ,$maxRows_get_faculty);
+ ?>
 </body>
 </html>
 <?php
