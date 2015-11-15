@@ -40,11 +40,16 @@ use \McKay\Flash;
     <script type="text/javascript" src="<?php echo $config['http_base_url'] ?>admin/template/js/notify/pnotify.buttons.js"></script>
     <script type="text/javascript" src="<?php echo $config['http_base_url'] ?>admin/template/js/notify/pnotify.nonblock.js"></script>
 
-<? foreach(Flash::all() as $flash) { ?>
+<?php foreach(Flash::all() as $flash) { ?>
 <script>
+var stack_center = {"dir1": "down", "dir2": "right", "firstpos1": 25, "firstpos2": ($(window).width() / 2) - (Number(PNotify.prototype.options.width.replace(/\D/g, '')) / 2)};
+$(window).resize(function(){
+    stack_center.firstpos2 = ($(window).width() / 2) - (Number(PNotify.prototype.options.width.replace(/\D/g, '')) / 2);
+});
      new PNotify({
             type:"<?php echo $flash['type'] == 'notice' ? 'warning' : $flash['type'] ?>",
-            text: '<?php echo $flash['message']; ?>'
+            text: '<?php echo $flash['message']; ?>',
+            stack: stack_center
         });
 </script>
 <? } Flash::clear(); ?>

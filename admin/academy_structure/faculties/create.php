@@ -4,9 +4,9 @@ require_once('../../../config/boot.php');
 use \McKay\Flash;
 
 
-$updateFormAction = $_SERVER['PHP_SELF'];
+$createFormAction = $_SERVER['PHP_SELF'];
 if (isset($_SERVER['QUERY_STRING'])) {
-  $updateFormAction .= "?" . htmlentities($_SERVER['QUERY_STRING']);
+  $createFormAction .= "?" . htmlentities($_SERVER['QUERY_STRING']);
 }
 
 if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form1")) {
@@ -49,24 +49,8 @@ require_once $config['base_url'].'/admin/template/includes/header.php';
            <div class="clearfix"></div>
          </div>
          <div class="x_content">
-          <form class="form-horizontal form-label-left" method='POST' action='<?php echo $updateFormAction ?>' data-parsley-validate>
-                                <div class="form-group">
-                                    <label class="control-label col-md-3" for="faculty_name"><?php echo $ecss_lang['ACADEMY_NAME'] ?><span class="required">*</span>
-                                    </label>
-                                    <div class="col-md-7">
-                                        <input type="text" name='faculty_name' id="faculty_name" required="required" class="form-control col-md-7 col-xs-12" />
-                                    </div>
-                                </div>
-                                   <div class="ln_solid"></div>
-                                   <div class="form-group">
-                                            <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
-                                                <a href='index.php' class="btn btn-default pull-left">
-                                                <i class="fa fa-close"></i> <?php echo $ecss_lang['CANCEL'] ?></a>
-                                                <button type="submit" class="btn btn-success pull-left">
-                                                <i class="fa fa-save"></i> <?php echo $ecss_lang['SUBMIT'] ?>
-                                                </button>
-                                            </div>
-                                        </div>
+          <form class="form-horizontal form-label-left" method='POST' action='<?php echo $createFormAction ?>' data-parsley-validate>
+                                <?php require_once('_fields.php') ?>
             <input type="hidden" name="MM_insert" value="form1" />
           </form>
          

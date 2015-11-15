@@ -12,7 +12,10 @@ $ecss_lang = array(
 	// Academy
 	'ACADEMY_STRUCTURE'		=> [
 						'FACULTY'=>[
-							'ADD_SUCCESS'=>'تم اضافة الكلية بنجاح'
+							'ADD_SUCCESS'=>'تم اضافة الكلية بنجاح.',
+							'NO_ITEMS'	 =>'لا يوجد بيانات في الصفحة التي تطلبها.',
+							'DELETE_SUCCESS'=>'تم حذف الكلية بنجاح.',
+							'DELETE_ERROR'=>'وقع خلل لم يتم حذف الكلية.',
 						]
 	],
 	'ACADEMY_NAME'=>'إسم الكلية',

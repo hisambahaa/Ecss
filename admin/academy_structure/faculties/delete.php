@@ -3,7 +3,7 @@
 require_once('../../../config/boot.php');
 use \McKay\Flash;
 
-$faculty_id =  GetSQLValueString($_POST['faculty_id'], "int");
+$faculty_id =  GetSQLValueString($_GET['faculty_id'], "int");
 
 $delete = sprintf("DELETE FROM academy_structure_faculty WHERE faculty_id=%s",$faculty_id);
 

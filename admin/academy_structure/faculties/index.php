@@ -10,7 +10,7 @@ if (isset($_SERVER['QUERY_STRING'])) {
 }
 
 /**  start pagination */
-$pagination_per_page  = 2;
+$pagination_per_page  = 10;
 $pagination_target    = 'index.php';
 $page                 = 0;
 if (isset($_GET['page'])) $page = $_GET['page'];
@@ -27,6 +27,7 @@ $get_faculty_recordset = mysql_query($query_get_faculty, $dares_conn) or die(mys
 $get_faculty_recordset_limit = mysql_query($query_get_faculty_limit, $dares_conn) or die(mysql_error());
 
 $row_get_faculty = mysql_fetch_assoc($get_faculty_recordset_limit);
+$total = mysql_num_rows($get_faculty_recordset_limit);
 $pagination_total = mysql_num_rows($get_faculty_recordset);
 
 
@@ -53,7 +54,7 @@ require_once $config['base_url'].'/admin/template/includes/header.php';
            </div>
          </div>
           <div class="x_content">
-          
+          <?php if(!empty($total)): ?>
           <table align="center" class="table table-striped responsive-utilities table-bordered jambo_table bulk_action">
             <thead>
               <tr class="headings">
@@ -69,7 +70,7 @@ require_once $config['base_url'].'/admin/template/includes/header.php';
               <?php do { ?>
               <tr>
                 <td><input type="checkbox" name='table_records' class='flat'></td>
-                <td>1</td>
+                <td><?php echo $row_get_faculty['faculty_id']; ?></td>
                 <td><?php echo $row_get_faculty['faculty_name']; ?></td>
                 <td><?php echo $row_get_faculty['user_fullname']; ?></td>
                 <td><?php echo $row_get_faculty['faculty_created_date']; ?></td>
@@ -78,7 +79,7 @@ require_once $config['base_url'].'/admin/template/includes/header.php';
                   <i class="fa fa-calendar"></i>
                    السنوات الدراسية
                    </a>
-                   <a href="" class='btn btn-success btn-xs'>
+                   <a href="edit.php?faculty_id=<?php echo $row_get_faculty['faculty_id'] ?>" class='btn btn-success btn-xs'>
                     <i class="fa fa-edit"></i>
                      <?php echo $ecss_lang['EDIT'] ?>
                    </a>
@@ -91,6 +92,11 @@ require_once $config['base_url'].'/admin/template/includes/header.php';
               <?php } while ($row_get_faculty = mysql_fetch_assoc($get_faculty_recordset_limit)); ?>
             </tbody>
           </table>
+        <?php else: ?>
+          <div class="alert alert-info">
+            <i class="fa fa-info-circle"></i> <?php echo $ecss_lang['ACADEMY_STRUCTURE']['FACULTY']['NO_ITEMS'] ?>
+          </div>
+        <?php endif; ?>
 
           <?php generate_pagination($pagination_target ,$pagination_total ,$pagination_per_page); ?>
 </div>

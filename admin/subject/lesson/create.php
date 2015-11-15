@@ -1,6 +1,6 @@
-<?php require_once('../../../config/boot.php'); ?>
+<?php require_once('../../../config/boot.php');
 use \McKay\Flash;
-<?php
+
 if (!function_exists("GetSQLValueString")) {
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
 {
