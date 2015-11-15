@@ -1,4 +1,4 @@
-<?php require_once('../../Connections/boot.php'); ?>
+<?php require_once('../../config/boot.php'); ?>
 <?php
 
 $editFormAction = $_SERVER['PHP_SELF'];
@@ -42,7 +42,7 @@ $query_get_all_element = sprintf("SELECT * FROM subject_element WHERE element_le
 $get_all_element = mysql_query($query_get_all_element, $dares_conn) or die(mysql_error());
 $row_get_all_element = mysql_fetch_assoc($get_all_element);
 $totalRows_get_all_element = mysql_num_rows($get_all_element);
- //require_once('../../Connections/boot.php'); ?>
+ //require_once('../../config/boot.php'); ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>

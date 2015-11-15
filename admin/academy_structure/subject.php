@@ -1,6 +1,6 @@
 <?php
 
-require_once('../../Connections/boot.php');
+require_once('../../config/boot.php');
 
 if (!function_exists("GetSQLValueString")) {
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
@@ -32,7 +32,7 @@ function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDe
   return $theValue;
 }
 }
- require_once('../../Connections/perm.php'); ?>
+ require_once('../../config/perm.php'); ?>
 <?php
 $editFormAction = $_SERVER['PHP_SELF'];
 if (isset($_SERVER['QUERY_STRING'])) {

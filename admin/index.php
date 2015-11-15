@@ -1,6 +1,6 @@
 <?php
 
-require_once('../Connections/boot.php');
+require_once('../config/boot.php');
 
 $pageTitle = 'الادارة';
 require_once $config['base_url'].'/admin/template/includes/header.php'; 

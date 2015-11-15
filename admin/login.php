@@ -2,10 +2,10 @@
 
 if(isset($_SESSION['User_id'])) header('location:'.$config['http_base_url']."admin/index.php");
 
-require_once('../Connections/boot.php');
+require_once('../config/boot.php');
 
 
-//require_once("../Connections/composer.php");
+//require_once("../config/composer.php");
 
 if (!function_exists("GetSQLValueString")) {
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 

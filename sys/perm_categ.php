@@ -1,5 +1,5 @@
 <?php
-require_once "../Connections/boot.php";
+require_once "../config/boot.php";
 // *** Redirect if username exists
 $MM_flag="MM_insert";
 if (isset($_POST[$MM_flag])) {

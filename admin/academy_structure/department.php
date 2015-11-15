@@ -1,6 +1,6 @@
 <?php
 
-require_once('../../Connections/boot.php');
+require_once('../../config/boot.php');
 
 $editFormAction = $_SERVER['PHP_SELF'];
 if (isset($_SERVER['QUERY_STRING'])) {
