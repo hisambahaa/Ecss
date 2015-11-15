@@ -136,3 +136,43 @@ echo $pagination;
 }
 
 }
+
+function generate_breadcrumbs($links) {
+  if(!is_array($links)) echo "";
+  global $config;
+  $breadcrumb = '<div class="row">
+            <ol class="breadcrumb">';
+  $level=1;
+  foreach($links as $title=>$href):
+    if($level==count($links))
+    $breadcrumb .=  '<li class="active">'.$title.'</li>';
+    else
+    $breadcrumb .= '<li><a href="'.$config['http_base_url'].$href.'">'.$title.'</a></li>';
+
+  $level++;
+  endforeach;
+             
+  $breadcrumb .='</ol>
+          </div>';
+
+  echo $breadcrumb;
+}
+
+function trans($path) {
+  global $ecss_lang;
+  $path = strtoupper($path);
+  $path_array = explode('.',$path);
+ return get_array_value($ecss_lang ,$path_array);
+}
+
+function get_array_value($array, $indexes)
+{
+  if (count($indexes) == 1)
+  {
+    return $array[$indexes[0]];
+  }
+
+  $index = array_shift($indexes);
+
+  return get_array_value($array[$index], $indexes);
+}
