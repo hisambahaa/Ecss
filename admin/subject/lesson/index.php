@@ -1,9 +1,4 @@
-<?php require_once('../../../Connections/dares_conn.php'); ?>
-<?php require_once('../../../Connections/config.php'); ?>
-<?php require_once('../../../languages/ar.php'); ?>
-
-<?php require_once('../../../Connections/composer.php'); ?>
-
+<?php require_once('../../../config/boot.php'); ?>
 <?php
 if (!function_exists("GetSQLValueString")) {
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
@@ -49,7 +44,7 @@ $totalRows_get_lesson = mysql_num_rows($get_lesson);
 ?>
 <?php 
 // html page title
-$pageTitle='الدروس';
+$pageTitle=$ecss_lang['Subject']['lesson']['LIST_LESSON'] ;
 // require page header
 require_once $config['base_url'].'/admin/template/includes/header.php';
 ?>
@@ -58,7 +53,7 @@ require_once $config['base_url'].'/admin/template/includes/header.php';
     <div class="col-md-12 col-sm-12 col-xs-12">
       <div class="x_panel" style="min-height:600px;">
         <div class="x_title">
-          <h2>قائمة الدروس</h2>
+          <h2><?php echo $ecss_lang['Subject']['lesson']['LIST_LESSON'] ?></h2>
            <div class="clearfix"></div>
          </div>
          <div class="row">
@@ -73,20 +68,20 @@ require_once $config['base_url'].'/admin/template/includes/header.php';
  <thead>
   <tr>
   	<td align="center"><input type="checkbox" class='flat' id='check-all'></td>
-    <td>رقم</td>
-    <td>اسم الدرس</td>
-    <td>الترتيب</td>
-    <td>النوع</td>
-    <td>الحاله</td>
-    <td>انشئ بواسطة</td>
-    <td>تاريخ الانشاء</td>
+    <td><?php echo $ecss_lang['ID'] ?></td>
+    <td><?php echo $ecss_lang['Subject']['lesson']['LESSON_NAME'] ?></td>
+    <td><?php echo $ecss_lang['Subject']['lesson']['LESSON_ORDER'] ?></td>
+    <td><?php echo $ecss_lang['Subject']['lesson']['LESSON_TYPE'] ?></td>
+    <td><?php echo $ecss_lang['Subject']['lesson']['LESSON_STATE'] ?></td>
+    <td><?php echo $ecss_lang['CREATED_BY'] ?></td>
+    <td><?php echo $ecss_lang['CREATED_DATE'] ?></td>
     <td align="center"><?php echo $ecss_lang['EDIT']; ?></td>
     <td align="center"><?php echo $ecss_lang['DELETE']; ?></td>
   </tr>
   </thead>
   <?php do { ?>
     <tr>
-      <td align="center"><input type="checkbox" name='table_records' class='flat'></td>
+      <td align="center"><input type="checkbox" name='table_records[]' class='flat'></td>
       <td><?php echo $row_get_lesson['lesson_id']; ?></td>
       <td><?php echo $row_get_lesson['lesson_name']; ?></td>
       <td><?php echo $row_get_lesson['lesson_order']; ?></td>

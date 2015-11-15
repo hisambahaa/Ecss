@@ -1,4 +1,5 @@
-<?php require_once('../../../Connections/dares_conn.php'); ?>
+<?php require_once('../../../config/boot.php'); ?>
+<?php use \McKay\Flash;?>
 <?php
 if (!function_exists("GetSQLValueString")) {
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
@@ -43,6 +44,7 @@ if ((isset($_GET['lesid'])) && ($_GET['lesid'] != "")) {
     $deleteGoTo .= (strpos($deleteGoTo, '?')) ? "&" : "?";
     $deleteGoTo .= $_SERVER['QUERY_STRING'];
   }
+  Flash::success($ecss_lang['Subject']['lesson']['DELETE_SUCCESS']);
   header(sprintf("Location: %s", $deleteGoTo));
 }
 ?>
