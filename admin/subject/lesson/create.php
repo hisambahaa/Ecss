@@ -54,7 +54,7 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form1")) {
     $insertGoTo .= (strpos($insertGoTo, '?')) ? "&" : "?";
     $insertGoTo .= $_SERVER['QUERY_STRING'].'subid='.$_POST['lesson_sub_id'];
   }
-  Flash::success($ecss_lang['Subject']['lesson']['ADD_SUCCESS']);
+  Flash::success($ecss_lang['Subject']['Lesson']['ADD_SUCCESS']);
   header(sprintf("Location: %s", $insertGoTo));
 }
 ?>
@@ -69,7 +69,7 @@ require_once $config['base_url'].'/admin/template/includes/header.php';
     <div class="col-md-12 col-sm-12 col-xs-12">
       <div class="x_panel" style="min-height:600px;">
         <div class="x_title">
-          <h2> <?php echo $ecss_lang['Subject']['lesson']['ADD_LESSON'] ?></h2>
+          <h2> <?php echo $ecss_lang['Subject']['Lesson']['ADD_LESSON'] ?></h2>
            <div class="clearfix"></div>
          </div>
          <div class="x_content">
@@ -78,7 +78,7 @@ require_once $config['base_url'].'/admin/template/includes/header.php';
 
      <div class="form-group">
           <label class="control-label col-md-3" for="lesson_name">
-          <?php echo $ecss_lang['Subject']['lesson']['LESSON_NAME'] ?>
+          <?php echo $ecss_lang['Subject']['Lesson']['LESSON_NAME'] ?>
           <span class="required">*</span>
           </label>
           <div class="col-md-7">
@@ -88,7 +88,7 @@ require_once $config['base_url'].'/admin/template/includes/header.php';
       
       <div class="form-group">
           <label class="control-label col-md-3" for="lesson_order">
-          <?php echo $ecss_lang['Subject']['lesson']['LESSON_ORDER'] ?>
+          <?php echo $ecss_lang['Subject']['Lesson']['LESSON_ORDER'] ?>
           <span class="required">*</span>
           </label>
           <div class="col-md-7">
@@ -98,7 +98,7 @@ require_once $config['base_url'].'/admin/template/includes/header.php';
       
       <div class="form-group">
           <label class="control-label col-md-3" for="lesson_type">
-          <?php echo $ecss_lang['Subject']['lesson']['LESSON_TYPE'] ?>
+          <?php echo $ecss_lang['Subject']['Lesson']['LESSON_TYPE'] ?>
           <span class="required">*</span>
           </label>
           <div class="col-md-7">
@@ -111,7 +111,7 @@ require_once $config['base_url'].'/admin/template/includes/header.php';
       
       <div class="form-group">
           <label class="control-label col-md-3" for="lesson_state">
-          <?php echo $ecss_lang['Subject']['lesson']['LESSON_STATE'] ?>
+          <?php echo $ecss_lang['Subject']['Lesson']['LESSON_STATE'] ?>
           <span class="required">*</span>
           </label>
           <div class="col-md-7">

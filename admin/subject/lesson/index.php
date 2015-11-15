@@ -44,7 +44,7 @@ $totalRows_get_lesson = mysql_num_rows($get_lesson);
 ?>
 <?php 
 // html page title
-$pageTitle=$ecss_lang['Subject']['lesson']['LIST_LESSON'] ;
+$pageTitle=$ecss_lang['Subject']['Lesson']['LIST_LESSON'] ;
 // require page header
 require_once $config['base_url'].'/admin/template/includes/header.php';
 ?>
@@ -53,7 +53,7 @@ require_once $config['base_url'].'/admin/template/includes/header.php';
     <div class="col-md-12 col-sm-12 col-xs-12">
       <div class="x_panel" style="min-height:600px;">
         <div class="x_title">
-          <h2><?php echo $ecss_lang['Subject']['lesson']['LIST_LESSON'] ?></h2>
+          <h2><?php echo $ecss_lang['Subject']['Lesson']['LIST_LESSON'] ?></h2>
            <div class="clearfix"></div>
          </div>
          <div class="row">
@@ -69,10 +69,10 @@ require_once $config['base_url'].'/admin/template/includes/header.php';
   <tr>
   	<td align="center"><input type="checkbox" class='flat' id='check-all'></td>
     <td><?php echo $ecss_lang['ID'] ?></td>
-    <td><?php echo $ecss_lang['Subject']['lesson']['LESSON_NAME'] ?></td>
-    <td><?php echo $ecss_lang['Subject']['lesson']['LESSON_ORDER'] ?></td>
-    <td><?php echo $ecss_lang['Subject']['lesson']['LESSON_TYPE'] ?></td>
-    <td><?php echo $ecss_lang['Subject']['lesson']['LESSON_STATE'] ?></td>
+    <td><?php echo $ecss_lang['Subject']['Lesson']['LESSON_NAME'] ?></td>
+    <td><?php echo $ecss_lang['Subject']['Lesson']['LESSON_ORDER'] ?></td>
+    <td><?php echo $ecss_lang['Subject']['Lesson']['LESSON_TYPE'] ?></td>
+    <td><?php echo $ecss_lang['Subject']['Lesson']['LESSON_STATE'] ?></td>
     <td><?php echo $ecss_lang['CREATED_BY'] ?></td>
     <td><?php echo $ecss_lang['CREATED_DATE'] ?></td>
     <td align="center"><?php echo $ecss_lang['EDIT']; ?></td>

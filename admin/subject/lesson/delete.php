@@ -44,7 +44,7 @@ if ((isset($_GET['lesid'])) && ($_GET['lesid'] != "")) {
     $deleteGoTo .= (strpos($deleteGoTo, '?')) ? "&" : "?";
     $deleteGoTo .= $_SERVER['QUERY_STRING'];
   }
-  Flash::success($ecss_lang['Subject']['lesson']['DELETE_SUCCESS']);
+  Flash::success($ecss_lang['Subject']['Lesson']['DELETE_SUCCESS']);
   header(sprintf("Location: %s", $deleteGoTo));
 }
 ?>
