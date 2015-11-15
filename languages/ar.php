@@ -1,3 +1,4 @@
+<<<<<<< .mine
 <?php 
 $ecss_lang = array(
 	'UPDATE'		=>'تحديث',
@@ -31,6 +32,24 @@ $ecss_lang = array(
 							'DELETE_ERROR'=>'وقع خلل لم يتم حذف السنة الدراسية.',
 							'MASS_DELETE_SUCCESS'=>'تم حذف السنوات الدراسية بنجاح',
 							'MASS_DELETE_ERROR'=>'وقع خلل لم يتم حذف السنوات الدراسية',
+						]
+	],
+	//Subject
+	'Subject'		=> [
+						'Lesson'=>[
+							'ADD_SUCCESS'=>'تم اضافة الدرس بنجاح.',
+							'DELETE_SUCCESS'=>'تم حذف الدرس بنجاح.',
+							'EDIT_SUCCESS'=>'تم تحديث الدرس بنجاح.',
+							
+							'LESSON_NAME'=>'إسم الدرس',
+							'LESSON_ORDER'=>'ترتيب الدرس',
+							'LESSON_TYPE'=>'نوع الدرس',
+							'LESSON_STATE'=>'حالة الدرس',
+							
+							
+							'ADD_LESSON'=>'إضافة درس',
+							'LIST_LESSON'=>'قائمة الدروس',
+							'UPDATE_LESSON'=>'تعديل درس',
 						]
 	],
 	'ACADEMY_NAME'=>'إسم الكلية',
