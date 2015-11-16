@@ -73,7 +73,7 @@ require_once $config['base_url'].'/admin/template/includes/header.php';
          </div>
          <div class="x_content">
 
-<form action="<?php echo $editFormAction; ?>" method="post" name="form1" id="form1">
+<form action="<?php echo $editFormAction; ?>" method="post" name="form1" id="form1" class="form-horizontal form-label-left" data-parsley-validate">
   <div class="form-group">
           <label class="control-label col-md-3" for="element_title">
           <?php echo $ecss_lang['Subject']['Element']['ELEMENT_NAME']; ?>
