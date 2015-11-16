@@ -2,6 +2,8 @@
 
 require_once('../../../config/boot.php');
 
+$input = array_merge($_GET ,$_POST);
+
 
 /**  start pagination */
 $pagination_per_page  = 10;
@@ -80,7 +82,7 @@ require_once $config['base_url'].'/admin/template/includes/header.php';
                 <td><?php echo $row_get_faculty['user_fullname']; ?></td>
                 <td><?php echo $row_get_faculty['faculty_created_date']; ?></td>
                 <td>
-                  <a href="../years/index.php?fid=<?php echo $row_get_faculty['faculty_id']; ?>" class="btn btn-default btn-xs">
+                  <a href="../years/index.php?faculty_id=<?php echo $row_get_faculty['faculty_id']; ?>" class="btn btn-default btn-xs">
                   <i class="fa fa-calendar"></i>
                    السنوات الدراسية
                    </a>

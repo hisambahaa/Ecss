@@ -176,3 +176,17 @@ function get_array_value($array, $indexes)
 
   return get_array_value($array[$index], $indexes);
 }
+if(!function_exists('db_row_exists')) {
+  function db_row_exists($table ,$column,$id ,$extra_columns = []) {
+    $select = $column;
+    if($extra_columns) {
+      $extra_columns = implode(",",$extra_columns);
+      $select .=",".$extra_columns;
+    }
+
+    $query = mysql_query(sprintf('SELECT '.$select.' FROM '.$table.' WHERE '.$column.'=%s LIMIT 1' ,$id));
+   
+    return mysql_fetch_array($query);
+
+  }
+}
