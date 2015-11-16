@@ -70,7 +70,7 @@ $totalRows_get_lesson_by_lesid = mysql_num_rows($get_lesson_by_lesid);
 
 <?php 
 // html page title
-$pageTitle='تعديل درس';
+$pageTitle=$ecss_lang['Subject']['Lesson']['UPDATE_LESSON'];
 // require page header
 require_once $config['base_url'].'/admin/template/includes/header.php';
 ?>
@@ -97,7 +97,7 @@ require_once $config['base_url'].'/admin/template/includes/header.php';
       
       <div class="form-group">
           <label class="control-label col-md-3" for="lesson_order">
-          <?php echo $ecss_lang['Subject']['Lesson']['LESSON_ORDER'] ?>
+          <?php echo $ecss_lang['ORDER'] ?>
           <span class="required">*</span>
           </label>
           <div class="col-md-7">
@@ -107,26 +107,26 @@ require_once $config['base_url'].'/admin/template/includes/header.php';
       
       <div class="form-group">
           <label class="control-label col-md-3" for="lesson_type">
-          <?php echo $ecss_lang['Subject']['Lesson']['LESSON_TYPE'] ?>
+          <?php echo $ecss_lang['TYPE'] ?>
           <span class="required">*</span>
           </label>
           <div class="col-md-7">
               <select name="lesson_type" class="form-control">
-        <option value="1" <?php if (!(strcmp(1, htmlentities($row_get_lesson_by_lesid['lesson_type'], ENT_COMPAT, 'utf-8')))) {echo "SELECTED";} ?>>درس</option>
-        <option value="0" <?php if (!(strcmp(0, htmlentities($row_get_lesson_by_lesid['lesson_type'], ENT_COMPAT, 'utf-8')))) {echo "SELECTED";} ?>>مقدمة</option>
+        <option value="1" <?php if (!(strcmp(1, htmlentities($row_get_lesson_by_lesid['lesson_type'], ENT_COMPAT, 'utf-8')))) {echo "SELECTED";} ?>><?php echo $ecss_lang['Subject']['Lesson']['LESSON_TYPE_1'];?></option>
+        <option value="0" <?php if (!(strcmp(0, htmlentities($row_get_lesson_by_lesid['lesson_type'], ENT_COMPAT, 'utf-8')))) {echo "SELECTED";} ?>><?php echo $ecss_lang['Subject']['Lesson']['LESSON_TYPE_0'];?></option>
       </select>
           </div>
       </div>
       
       <div class="form-group">
           <label class="control-label col-md-3" for="Lesson_state">
-          <?php echo $ecss_lang['Subject']['Lesson']['LESSON_STATE'] ?>
+          <?php echo $ecss_lang['STATE'] ?>
           <span class="required">*</span>
           </label>
           <div class="col-md-7">
              <select name="lesson_state" class="form-control">
-        <option value="1" <?php if (!(strcmp(1, htmlentities($row_get_lesson_by_lesid['lesson_state'], ENT_COMPAT, 'utf-8')))) {echo "SELECTED";} ?>>نشط</option>
-        <option value="0" <?php if (!(strcmp(0, htmlentities($row_get_lesson_by_lesid['lesson_state'], ENT_COMPAT, 'utf-8')))) {echo "SELECTED";} ?>>غير نشط</option>
+        <option value="1" <?php if (!(strcmp(1, htmlentities($row_get_lesson_by_lesid['lesson_state'], ENT_COMPAT, 'utf-8')))) {echo "SELECTED";} ?>><?php echo $ecss_lang['ACTIVE'];?></option>
+        <option value="0" <?php if (!(strcmp(0, htmlentities($row_get_lesson_by_lesid['lesson_state'], ENT_COMPAT, 'utf-8')))) {echo "SELECTED";} ?>><?php echo $ecss_lang['NOT_ACTIVE'];?></option>
       </select>
           </div>
       </div>
