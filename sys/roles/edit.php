@@ -1,4 +1,4 @@
-<?php require_once('../../Connections/dares_conn.php'); ?>
+<?php require_once('../../config/boot.php'); ?>
 <?php
 if (!function_exists("GetSQLValueString")) {
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
@@ -61,31 +61,54 @@ $get_role = mysql_query($query_get_role, $dares_conn) or die(mysql_error());
 $row_get_role = mysql_fetch_assoc($get_role);
 $totalRows_get_role = mysql_num_rows($get_role);
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
-</head>
-
-<body>
-<form action="<?php echo $editFormAction; ?>" method="post" name="form1" id="form1">
-  <table align="center">
-    <tr valign="baseline">
-      <td nowrap="nowrap" align="right">Role_name:</td>
-      <td><input type="text" name="role_name" value="<?php echo htmlentities($row_get_role['role_name'], ENT_COMPAT, 'utf-8'); ?>" size="32" /></td>
-    </tr>
-    <tr valign="baseline">
-      <td nowrap="nowrap" align="right">&nbsp;</td>
-      <td><input type="submit" value="Update record" /></td>
-    </tr>
-  </table>
+<?php 
+// html page title
+$pageTitle='تعديل المجموعة';
+// require page header
+require_once $config['base_url'].'/admin/template/includes/header.php';
+?>
+<!-- page content -->
+  <div class="col-md-12 col-sm-12 col-xs-12">
+      <div class="x_panel" style="min-height:600px;">
+        <div class="x_title">
+          <h2>تعديل المجموعة</h2>
+           <div class="clearfix"></div>
+         </div>
+         <div class="row">
+           <div class="col-md-12">
+             
+           </div>
+         </div>
+          <div class="x_content">
+      
+ <form action="<?php echo $editFormAction; ?>" method="post" name="form1" id="form1" class="form-horizontal form-label-left" data-parsley-validate>
+ 
+<div class="form-group">
+    <label class="control-label col-md-3" for="faculty_name"><?php echo $ecss_lang['sys']['Role']['ROLE_NAME'] ?><span class="required">*</span>
+    </label>
+    <div class="col-md-7">
+    <input type="text" name="role_name" value="<?php echo htmlentities($row_get_role['role_name'], ENT_COMPAT, 'utf-8'); ?>" required="required" class="form-control col-md-7 col-xs-12"  />
+       </div>
+</div>
+<div class="ln_solid"></div>
+<div class="form-group">
+    <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+        <a href='index.php' class="btn btn-default pull-left">
+            <i class="fa fa-close"></i> <?php echo $ecss_lang['CANCEL'] ?></a>
+            <button type="submit" class="btn btn-success pull-left">
+                <i class="fa fa-save"></i> <?php echo $ecss_lang['UPDATE'] ?>
+            </button>
+        </div>
+    </div>
   <input type="hidden" name="MM_update" value="form1" />
   <input type="hidden" name="role_id" value="<?php echo $row_get_role['role_id']; ?>" />
 </form>
 <p>&nbsp;</p>
-</body>
-</html>
+<!-- icheck -->
+<script src="<?php echo $config['http_base_url'] ?>admin/template/js/validator/validator.js"></script>
+<script src="<?php echo $config['http_base_url'] ?>admin/template/js/icheck/icheck.min.js"></script>
+
+<?php require_once $config['base_url'].'/admin/template/includes/footer.php'; ?>
 <?php
 mysql_free_result($get_role);
 ?>

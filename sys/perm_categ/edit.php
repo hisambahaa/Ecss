@@ -1,4 +1,4 @@
-<?php require_once('../../Connections/dares_conn.php'); ?>
+<?php require_once('../../config/boot.php'); ?>
 <?php
 if (!function_exists("GetSQLValueString")) {
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
@@ -62,31 +62,37 @@ $get_cat = mysql_query($query_get_cat, $dares_conn) or die(mysql_error());
 $row_get_cat = mysql_fetch_assoc($get_cat);
 $totalRows_get_cat = mysql_num_rows($get_cat);
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
-</head>
+<?php 
+// html page title
+$pageTitle=$ecss_lang['sys']['perm_cat']['UPDATE_CAT'];
+// require page header
+require_once $config['base_url'].'/admin/template/includes/header.php';
+?>
+<!-- page content -->
 
-<body>
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <div class="x_panel" style="min-height:600px;">
+        <div class="x_title">
+          <h2><?php echo $ecss_lang['sys']['perm_cat']['UPDATE_CAT'] ?></h2>
+           <div class="clearfix"></div>
+         </div>
+         <div class="row">
+           <div class="col-md-12">
+           </div>
+         </div>
+          <div class="x_content">
 <form action="<?php echo $editFormAction; ?>" method="post" name="form1" id="form1">
-  <table align="center">
-    <tr valign="baseline">
-      <td nowrap="nowrap" align="right">Categ_name:</td>
-      <td><input type="text" name="categ_name" value="<?php echo htmlentities($row_get_cat['categ_name'], ENT_COMPAT, 'utf-8'); ?>" size="32" /></td>
-    </tr>
-    <tr valign="baseline">
-      <td nowrap="nowrap" align="right">&nbsp;</td>
-      <td><input type="submit" value="Update record" /></td>
-    </tr>
-  </table>
+
+   <?php require_once('_fields.php') ?>
   <input type="hidden" name="MM_update" value="form1" />
   <input type="hidden" name="categ_id" value="<?php echo $row_get_cat['categ_id']; ?>" />
 </form>
 <p>&nbsp;</p>
-</body>
-</html>
+<!-- icheck -->
+<script src="<?php echo $config['http_base_url'] ?>admin/template/js/validator/validator.js"></script>
+<script src="<?php echo $config['http_base_url'] ?>admin/template/js/icheck/icheck.min.js"></script>
+
+<?php require_once $config['base_url'].'/admin/template/includes/footer.php'; ?>
 <?php
 mysql_free_result($get_cat);
 ?>
