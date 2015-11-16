@@ -1,4 +1,5 @@
-<?php require_once('../../Connections/dares_conn.php'); ?>
+<?php require_once('../../config/boot.php'); ?>
+<?php use \McKay\Flash;?>
 <?php
 if (!function_exists("GetSQLValueString")) {
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
@@ -47,7 +48,7 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form1")) {
                        GetSQLValueString($_POST['user_photo'], "text"),
                        GetSQLValueString(isset($_POST['user_state']) ? "true" : "", "defined","1","0"),
                        GetSQLValueString($_POST['user_sex'], "text"),
-                       GetSQLValueString($_POST['user_created_by'], "int"));
+                       GetSQLValueString($_SESSION['User_id'], "int"));
 
   mysql_select_db($database_dares_conn, $dares_conn);
   $Result1 = mysql_query($insertSQL, $dares_conn) or die(mysql_error());
@@ -57,6 +58,7 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form1")) {
     $insertGoTo .= (strpos($insertGoTo, '?')) ? "&" : "?";
     $insertGoTo .= $_SERVER['QUERY_STRING'];
   }
+  Flash::success($ecss_lang['sys']['User']['ADD_SUCCESS']);
   header(sprintf("Location: %s", $insertGoTo));
 }
 
@@ -66,81 +68,150 @@ $get_role = mysql_query($query_get_role, $dares_conn) or die(mysql_error());
 $row_get_role = mysql_fetch_assoc($get_role);
 $totalRows_get_role = mysql_num_rows($get_role);
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
-</head>
+<?php 
+// html page title
+$pageTitle=$ecss_lang['sys']['User']['LIST_USER'] ;
+// require page header
+require_once $config['base_url'].'/admin/template/includes/header.php';
+?>
+<!-- page content -->
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <div class="x_panel" style="min-height:600px;">
+        <div class="x_title">
+          <h2><?php echo $ecss_lang['sys']['User']['ADD_USER'] ?></h2>
+           <div class="clearfix"></div>
+         </div>
 
-<body>
-<form action="<?php echo $editFormAction; ?>" method="post" name="form1" id="form1">
-  <table align="center">
-    <tr valign="baseline">
-      <td nowrap="nowrap" align="right">User_name:</td>
-      <td><input type="text" name="user_name" value="" size="32" /></td>
-    </tr>
-    <tr valign="baseline">
-      <td nowrap="nowrap" align="right">User_pwd:</td>
-      <td><input type="text" name="user_pwd" value="" size="32" /></td>
-    </tr>
-    <tr valign="baseline">
-      <td nowrap="nowrap" align="right">User_role_ids:</td>
-      <td><select name="user_role_ids">
-        <?php 
-do {  
-?>
-        <option value="<?php echo $row_get_role['role_id']?>" ><?php echo $row_get_role['role_name']?></option>
-        <?php
-} while ($row_get_role = mysql_fetch_assoc($get_role));
-?>
-      </select></td>
-    </tr>
-    <tr> </tr>
-    <tr valign="baseline">
-      <td nowrap="nowrap" align="right">User_fullname:</td>
-      <td><input type="text" name="user_fullname" value="" size="32" /></td>
-    </tr>
-    <tr valign="baseline">
-      <td nowrap="nowrap" align="right">User_email:</td>
-      <td><input type="text" name="user_email" value="" size="32" /></td>
-    </tr>
-    <tr valign="baseline">
-      <td nowrap="nowrap" align="right">User_mobile:</td>
-      <td><input type="text" name="user_mobile" value="" size="32" /></td>
-    </tr>
-    <tr valign="baseline">
-      <td nowrap="nowrap" align="right">User_photo:</td>
-      <td><input type="text" name="user_photo" value="" size="32" /></td>
-    </tr>
-    <tr valign="baseline">
-      <td nowrap="nowrap" align="right">User_state:</td>
-      <td><input type="checkbox" name="user_state" value="" /></td>
-    </tr>
-    <tr valign="baseline">
-      <td nowrap="nowrap" align="right">User_sex:</td>
-      <td valign="baseline"><table>
-        <tr>
-          <td><input type="radio" name="user_sex" value="1" />
-            ذكر</td>
-        </tr>
-        <tr>
-          <td><input type="radio" name="user_sex" value="0" />
-            انثى</td>
-        </tr>
-      </table></td>
-    </tr>
-    <tr valign="baseline">
-      <td nowrap="nowrap" align="right">&nbsp;</td>
-      <td><input type="submit" value="Insert record" /></td>
-    </tr>
-  </table>
-  <input type="hidden" name="user_created_by" value="1" />
+          <div class="x_content">
+<form action="<?php echo $editFormAction; ?>" method="post" name="form1" id="form1" class="form-horizontal" data-parsley-validate="" novalidate="">
+
+       <div class="form-group">
+          <label class="control-label col-md-3" for="user_name">
+          <?php echo $ecss_lang['NAME'] ?>
+          <span class="required">*</span>
+          </label>
+          <div class="col-md-7">
+              <input type="text" name='user_name' id="user_name" required="required" class="form-control col-md-7 col-xs-12" />
+          </div>
+      </div>
+      
+      <div class="form-group">
+          <label class="control-label col-md-3" for="user_pwd">
+          <?php echo $ecss_lang['sys']['User']['USER_PASSWORD'] ?>
+          <span class="required">*</span>
+          </label>
+          <div class="col-md-7">
+              <input type="text" name='user_pwd' id="user_pwd" required="required" class="form-control col-md-7 col-xs-12" />
+          </div>
+      </div>
+      
+      <div class="form-group">
+          <label class="control-label col-md-3" for="user_pwd">
+          <?php echo $ecss_lang['GROUPS'] ?>
+          <span class="required">*</span>
+          </label>
+          <div class="col-md-7">
+          <select name="user_role_ids[]"  class="select2_multiple form-control" multiple="multiple">
+                  <?php do {  ?>
+                  <option value="<?php echo $row_get_role['role_id']?>" ><?php echo $row_get_role['role_name']?></option>
+                  <?php } while ($row_get_role = mysql_fetch_assoc($get_role)); ?>
+          </select>
+          </div>
+      </div>
+          
+      <div class="form-group">
+          <label class="control-label col-md-3" for="user_fullname">
+          <?php echo $ecss_lang['NAME'] ?>
+          <span class="required">*</span>
+          </label>
+          <div class="col-md-7">
+              <input type="text" name='user_fullname' id="user_fullname" required="required" class="form-control col-md-7 col-xs-12" />
+          </div>
+      </div>
+
+          
+      <div class="form-group">
+          <label class="control-label col-md-3" for="user_email">
+          <?php echo $ecss_lang['EMAIL'] ?>
+          <span class="required">*</span>
+          </label>
+          <div class="col-md-7">
+              <input type="text" name='user_email' id="user_email" required="required" class="form-control col-md-7 col-xs-12" />
+          </div>
+      </div>
+              
+      <div class="form-group">
+          <label class="control-label col-md-3" for="user_mobile">
+          <?php echo $ecss_lang['PHONE'] ?>
+          <span class="required">*</span>
+          </label>
+          <div class="col-md-7">
+              <input type="text" name='user_mobile' id="user_mobile" required="required" class="form-control col-md-7 col-xs-12" />
+          </div>
+      </div>
+      
+                    
+      <div class="form-group">
+          <label class="control-label col-md-3" for="user_photo">
+          <?php echo $ecss_lang['PHOTO'] ?>
+          <span class="required">*</span>
+          </label>
+          <div class="col-md-7">
+              <input type="file" name='user_photo' id="user_photo" required="required" class="form-control col-md-7 col-xs-12" />
+          </div>
+      </div>
+            
+              
+      <div class="form-group">
+      <label class="control-label col-md-3" for="user_state">
+          <?php echo $ecss_lang['STATE'] ?>
+          <span class="required">*</span>
+      </label>
+          <div class="col-md-7">
+            <input type="checkbox" class="flat" name='user_state' id="user_state" checked="checked"><?php echo $ecss_lang['ACTIVE'] ?>
+          </div>
+      </div>
+      
+      
+	  <div class="form-group">
+          <label class="control-label col-md-3" for="user_sex">
+          <?php echo $ecss_lang['SEX'] ?>
+          <span class="required">*</span>
+          </label>
+          
+          <div class="col-md-7">
+              <?php echo $ecss_lang['MALE'] ?>:<input type="radio" class="flat" name="user_sex" id="genderM" value="1" checked required /> 
+              <?php echo $ecss_lang['FEMALE'] ?>:<input type="radio" class="flat" name="user_sex" id="genderF" value="0" />
+          </div>
+	</div>
+    
+  <div class="ln_solid"></div>
+   <div class="form-group">
+            <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                <a href='index.php' class="btn btn-default pull-left">
+                <i class="fa fa-close"></i> <?php echo $ecss_lang['CANCEL'] ?></a>
+                <button type="submit" class="btn btn-success pull-left">
+                <i class="fa fa-save"></i> <?php echo $ecss_lang['SUBMIT'] ?>
+                </button>
+            </div>
+        </div>
   <input type="hidden" name="MM_insert" value="form1" />
 </form>
-<p>&nbsp;</p>
-</body>
-</html>
+<!-- icheck -->
+<script src="<?php echo $config['http_base_url'] ?>admin/template/js/validator/validator.js"></script>
+<script src="<?php echo $config['http_base_url'] ?>admin/template/js/icheck/icheck.min.js"></script>
+<script>
+            $(document).ready(function () {
+                $(".select2_multiple").select2({
+                    placeholder: "يمكن الاختيار اكثر من اختيار",
+                    allowClear: true
+                });
+            });
+        </script>
+
+<script src= <?php echo $config['http_base_url'].'/admin/template/js/select/select2.full.js' ?>></script>
+<link href="<?php echo $config['http_base_url'].'/admin/template/css/select/select2.min.css'; ?>" rel="stylesheet">
+<?php require_once $config['base_url'].'/admin/template/includes/footer.php'; ?>
 <?php
 mysql_free_result($get_role);
 ?>
