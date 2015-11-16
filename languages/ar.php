@@ -13,9 +13,14 @@ $ecss_lang = array(
 	'DELETE_ALL'	=>'حذف الكل',
 	'SAVE_UPDATES'	=>'حفظ التعديلات',
 	
-	'CREATED_BY' => 'أنشئ بواسطة',
+	'CREATED_BY' => 'بواسطة',
 	'CREATED_DATE' => 'تاريخ الإنشاء',
 	'ID' => 'رقم',
+	'ORDER' => 'الترتيب',
+	'TYPE' => 'النوع',
+	'STATE' => 'الحالة',
+	'ACTIVE' => 'نشط',
+	'NOT_ACTIVE' => 'غير نشط',
 	// Academy
 	'ACADEMY_STRUCTURE'		=> [
 						'STRUCTURE'=>'الهيكل',
@@ -46,9 +51,8 @@ $ecss_lang = array(
 							'EDIT_SUCCESS'=>'تم تحديث الدرس بنجاح.',
 							
 							'LESSON_NAME'=>'اسم الدرس',
-							'LESSON_ORDER'=>'ترتيب الدرس',
-							'LESSON_TYPE'=>'نوع الدرس',
-							'LESSON_STATE'=>'حالة الدرس',
+							'LESSON_TYPE_1'=>'درس',
+							'LESSON_TYPE_0'=>'مقدمة',
 							
 							
 							'ADD_LESSON'=>'إضافة درس',
