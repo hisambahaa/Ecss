@@ -1,4 +1,3 @@
-<<<<<<< .mine
 <?php 
 $ecss_lang = array(
 	'UPDATE'		=>'تحديث',
@@ -58,6 +57,21 @@ $ecss_lang = array(
 							'ADD_LESSON'=>'إضافة درس',
 							'LIST_LESSON'=>'قائمة الدروس',
 							'UPDATE_LESSON'=>'تعديل درس',
+						],
+						'Element'=>[
+							'ADD_SUCCESS'=>'تم اضافة الدرس بنجاح.',
+							'DELETE_SUCCESS'=>'تم حذف الدرس بنجاح.',
+							'EDIT_SUCCESS'=>'تم تحديث الدرس بنجاح.',
+							
+							'ELEMENT_NAME'=>'اسم العنصر',
+							'ELEMENT_TYPE_1'=>'عنصر',
+							'ELEMENT_TYPE_0'=>'مقدمة',
+							'ELEMENT_VALUE'=>'قيمة العنصر',
+							'ELEMENT_LESSON_VALUE'=>'رقم الدرس',
+							
+							'ADD_ELEMENT'=>'إضافة عنصر',
+							'LIST_ELEMENT'=>'قائمة العناصر',
+							'UPDATE_ELEMENT'=>'تعديل عنصر',
 						]
 	],
 	'ACADEMY_NAME'=>'إسم الكلية',
