@@ -64,6 +64,8 @@ $ecss_lang = array(
 							'EDIT_SUCCESS'=>'تم تحديث الدرس بنجاح.',
 							
 							'ELEMENT_NAME'=>'اسم العنصر',
+							'ELEMENT_TYPE'=>'نوع العنصر',
+							'ELEMENT_VALUE'=>'قيمة العنصر',
 							'ELEMENT_TYPE_1'=>'عنصر',
 							'ELEMENT_TYPE_0'=>'مقدمة',
 							'ELEMENT_VALUE'=>'قيمة العنصر',

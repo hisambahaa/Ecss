@@ -82,7 +82,7 @@ require_once $config['base_url'].'/admin/template/includes/header.php';
   </tr>
 </thead>
 <tbody>
-  <?php while ($row_get_all_element = mysql_fetch_assoc($get_all_element)) { ?>
+  <?php do { ?>
     <tr>
       <td align="center"><input type="checkbox" name='table_records[]' class='flat'></td>
       <td><?php echo $row_get_all_element['element_id']; ?></td>
@@ -106,7 +106,7 @@ require_once $config['base_url'].'/admin/template/includes/header.php';
         </a>
       </td>
     </tr>
-    <?php } ?>
+    <?php }while ($row_get_all_element = mysql_fetch_assoc($get_all_element)); ?>
     </tbody>
 </table>
 </div>

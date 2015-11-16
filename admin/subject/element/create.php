@@ -1,4 +1,5 @@
-<?php require_once('../../../Connections/dares_conn.php'); ?>
+<?php require_once('../../../config/boot.php'); ?>
+<?php use \McKay\Flash;?>
 <?php
 if (!function_exists("GetSQLValueString")) {
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
@@ -56,41 +57,74 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form1")) {
   header(sprintf("Location: %s", $insertGoTo));
 }
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
-</head>
+<?php 
+// html page title
+$pageTitle=$ecss_lang['Subject']['Element']['ADD_ELEMENT'];
+// require page header
+require_once $config['base_url'].'/admin/template/includes/header.php';
+?>
+<!-- page content -->
 
-<body>
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <div class="x_panel" style="min-height:600px;">
+        <div class="x_title">
+          <h2> <?php echo $ecss_lang['Subject']['Element']['ADD_ELEMENT'] ?></h2>
+           <div class="clearfix"></div>
+         </div>
+         <div class="x_content">
+
 <form action="<?php echo $editFormAction; ?>" method="post" name="form1" id="form1">
-  <table align="center">
-    <tr valign="baseline">
-      <td nowrap="nowrap" align="right">Element_title:</td>
-      <td><input type="text" name="element_title" value="" size="32" /></td>
-    </tr>
-    <tr valign="baseline">
-      <td nowrap="nowrap" align="right">Element_order:</td>
-      <td><input type="text" name="element_order" value="" size="32" /></td>
-    </tr>
-    <tr valign="baseline">
-      <td nowrap="nowrap" align="right">Element_type:</td>
-      <td><input type="text" name="element_type" value="" size="32" /></td>
-    </tr>
-    <tr valign="baseline">
-      <td nowrap="nowrap" align="right">Element_value:</td>
-      <td><input type="text" name="element_value" value="" size="32" /></td>
-    </tr>
-    <tr valign="baseline">
-      <td nowrap="nowrap" align="right">&nbsp;</td>
-      <td><input type="submit" value="Insert record" /></td>
-    </tr>
-  </table>
+  <div class="form-group">
+          <label class="control-label col-md-3" for="element_title">
+          <?php echo $ecss_lang['Subject']['Element']['ELEMENT_NAME']; ?>
+          <span class="required">*</span>
+          </label>
+          <div class="col-md-7">
+              <input type="text" name='element_title' id="element_title" required="required" class="form-control col-md-7 col-xs-12" />
+          </div>
+      </div>
+
+      <div class="form-group">
+          <label class="control-label col-md-3" for="element_order">
+          <?php echo $ecss_lang['ORDER'] ?>
+          <span class="required">*</span>
+          </label>
+          <div class="col-md-7">
+              <input type="text" name='element_order' id="element_order" required="required" class="form-control col-md-7 col-xs-12" />
+          </div>
+      </div>
+      <div class="form-group">
+          <label class="control-label col-md-3" for="element_type">
+          <?php echo $ecss_lang['Subject']['Element']['ELEMENT_TYPE']; ?>
+          <span class="required">*</span>
+          </label>
+          <div class="col-md-7">
+              <input type="text" name='element_type' id="element_type" required="required" class="form-control col-md-7 col-xs-12" />
+          </div>
+      </div>
+      <div class="form-group">
+          <label class="control-label col-md-3" for="element_value">
+          <?php echo $ecss_lang['Subject']['Element']['ELEMENT_VALUE']; ?>
+          <span class="required">*</span>
+          </label>
+          <div class="col-md-7">
+              <input type="text" name='element_value' id="element_value" required="required" class="form-control col-md-7 col-xs-12" />
+          </div>
+      </div>
+      <div class="ln_solid"></div>
+   <div class="form-group">
+            <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                
+                <button type="submit" class="btn btn-success pull-left">
+                <i class="fa fa-save"></i> <?php echo $ecss_lang['SUBMIT'] ?>
+                </button>
+            </div>
+        </div>
   <input type="hidden" name="element_lesson_id" value="<?php echo $_GET['lesid']; ?>" />
   <input type="hidden" name="element_created_by" value="<?php 1//$_SESSION['User_id']; ?>" />
   <input type="hidden" name="MM_insert" value="form1" />
 </form>
 <p>&nbsp;</p>
-</body>
-</html>
+<script src="<?php echo $config['http_base_url'] ?>admin/template/js/icheck/icheck.min.js"></script>
+
+<?php require_once $config['base_url'].'/admin/template/includes/footer.php'; ?>

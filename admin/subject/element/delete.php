@@ -1,4 +1,5 @@
-<?php require_once('../../../Connections/dares_conn.php'); ?>
+<?php require_once('../../../config/boot.php'); ?>
+<?php use \McKay\Flash;?>
 <?php
 if (!function_exists("GetSQLValueString")) {
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
