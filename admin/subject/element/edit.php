@@ -1,4 +1,5 @@
-<?php require_once('../../../Connections/dares_conn.php'); ?>
+<?php require_once('../../../config/boot.php'); ?>
+<?php use \McKay\Flash;?>
 <?php
 if (!function_exists("GetSQLValueString")) {
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
@@ -65,43 +66,73 @@ $get_all_element = mysql_query($query_get_all_element, $dares_conn) or die(mysql
 $row_get_all_element = mysql_fetch_assoc($get_all_element);
 $totalRows_get_all_element = mysql_num_rows($get_all_element);
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
-</head>
+<?php 
+// html page title
+$pageTitle=$ecss_lang['Subject']['Element']['UPDATE_ELEMENT'];
+// require page header
+require_once $config['base_url'].'/admin/template/includes/header.php';
+?>
+<!-- page content -->
 
-<body>
-<form action="<?php echo $editFormAction; ?>" method="post" name="form1" id="form1">
-  <table align="center">
-    <tr valign="baseline">
-      <td nowrap="nowrap" align="right">Element_title:</td>
-      <td><input type="text" name="element_title" value="<?php echo htmlentities($row_get_all_element['element_title'], ENT_COMPAT, 'utf-8'); ?>" size="32" /></td>
-    </tr>
-    <tr valign="baseline">
-      <td nowrap="nowrap" align="right">Element_order:</td>
-      <td><input type="text" name="element_order" value="<?php echo htmlentities($row_get_all_element['element_order'], ENT_COMPAT, 'utf-8'); ?>" size="32" /></td>
-    </tr>
-    <tr valign="baseline">
-      <td nowrap="nowrap" align="right">Element_type:</td>
-      <td><input type="text" name="element_type" value="<?php echo htmlentities($row_get_all_element['element_type'], ENT_COMPAT, 'utf-8'); ?>" size="32" /></td>
-    </tr>
-    <tr valign="baseline">
-      <td nowrap="nowrap" align="right">Element_value:</td>
-      <td><input type="text" name="element_value" value="<?php echo htmlentities($row_get_all_element['element_value'], ENT_COMPAT, 'utf-8'); ?>" size="32" /></td>
-    </tr>
-    <tr valign="baseline">
-      <td nowrap="nowrap" align="right">&nbsp;</td>
-      <td><input type="submit" value="Update record" /></td>
-    </tr>
-  </table>
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <div class="x_panel" style="min-height:600px;">
+        <div class="x_title">
+          <h2><?php echo $ecss_lang['Subject']['Element']['UPDATE_ELEMENT'] ?></h2>
+           <div class="clearfix"></div>
+         </div>
+         <div class="x_content">
+
+<form action="<?php echo $editFormAction; ?>" method="post" name="form1" id="form1" class="form-horizontal form-label-left" data-parsley-validate">
+  <div class="form-group">
+          <label class="control-label col-md-3" for="element_title">
+          <?php echo $ecss_lang['Subject']['Element']['ELEMENT_NAME'] ?>
+          <span class="required">*</span>
+          </label>
+          <div class="col-md-7">
+            <input type="text" name="element_title" value="<?php echo htmlentities($row_get_all_element['element_title'], ENT_COMPAT, 'utf-8'); ?>" size="32" />
+          </div>
+  </div>
+  <div class="form-group">
+          <label class="control-label col-md-3" for="element_order">
+          <?php echo $ecss_lang['ORDER'];?>
+          <span class="required">*</span>
+          </label>
+          <div class="col-md-7">
+            <td><input type="text" name="element_order" value="<?php echo htmlentities($row_get_all_element['element_order'], ENT_COMPAT, 'utf-8'); ?>" size="32" />
+          </div>
+  </div>
+  <div class="form-group">
+          <label class="control-label col-md-3" for="element_type">
+          <?php echo $ecss_lang['Subject']['Element']['ELEMENT_TYPE'] ?>
+          <span class="required">*</span>
+          </label>
+          <div class="col-md-7">
+            <input type="text" name="element_type" value="<?php echo htmlentities($row_get_all_element['element_type'], ENT_COMPAT, 'utf-8'); ?>" size="32" />
+          </div>
+  </div>
+  <div class="form-group">
+          <label class="control-label col-md-3" for="element_value">
+          <?php echo $ecss_lang['Subject']['Element']['ELEMENT_VALUE'] ?>
+          <span class="required">*</span>
+          </label>
+          <div class="col-md-7">
+            <input type="text" name="element_value" value="<?php echo htmlentities($row_get_all_element['element_value'], ENT_COMPAT, 'utf-8'); ?>" size="32" />
+          </div>
+  </div>
+  <div class="form-group">
+            <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                <button type="submit" class="btn btn-success pull-left">
+                <i class="fa fa-save"></i> <?php echo $ecss_lang['UPDATE'] ?>
+                </button>
+            </div>
+        </div>
   <input type="hidden" name="MM_update" value="form1" />
   <input type="hidden" name="element_id" value="<?php echo $row_get_all_element['element_id']; ?>" />
 </form>
 <p>&nbsp;</p>
-</body>
-</html>
+<script src="<?php echo $config['http_base_url'] ?>admin/template/js/icheck/icheck.min.js"></script>
+
+<?php require_once $config['base_url'].'/admin/template/includes/footer.php'; ?>
 <?php
 mysql_free_result($get_all_element);
 ?>

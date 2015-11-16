@@ -16,6 +16,8 @@ require_once __DIR__ .'/../../../config/config.php';
                                         </li>
                                         <li><a href="<?php echo $config['http_base_url'] ?>admin/academy_structure/faculties/index.php">الهيكل</a>
                                         </li>
+                                        <li><a href="<?php echo $config['http_base_url'] ?>admin/subject/element/index.php?lesid=1">عناصر الدرس</a>
+                                        </li>
                                     </ul>
                                 </li>
                                 <li><a><i class="fa fa-edit"></i> الفورمات <span class="fa fa-chevron-down"></span></a>

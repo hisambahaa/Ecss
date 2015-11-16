@@ -70,9 +70,9 @@ require_once $config['base_url'].'/admin/template/includes/header.php';
   	<td align="center"><input type="checkbox" class='flat' id='check-all'></td>
     <td><?php echo $ecss_lang['ID'] ?></td>
     <td><?php echo $ecss_lang['Subject']['Lesson']['LESSON_NAME'] ?></td>
-    <td><?php echo $ecss_lang['Subject']['Lesson']['LESSON_ORDER'] ?></td>
-    <td><?php echo $ecss_lang['Subject']['Lesson']['LESSON_TYPE'] ?></td>
-    <td><?php echo $ecss_lang['Subject']['Lesson']['LESSON_STATE'] ?></td>
+    <td><?php echo $ecss_lang['ORDER'] ?></td>
+    <td align="center"><?php echo $ecss_lang['TYPE'] ?></td>
+    <td align="center"><?php echo $ecss_lang['STATE'] ?></td>
     <td><?php echo $ecss_lang['CREATED_BY'] ?></td>
     <td><?php echo $ecss_lang['CREATED_DATE'] ?></td>
     <td align="center"><?php echo $ecss_lang['EDIT']; ?></td>
@@ -85,8 +85,18 @@ require_once $config['base_url'].'/admin/template/includes/header.php';
       <td><?php echo $row_get_lesson['lesson_id']; ?></td>
       <td><?php echo $row_get_lesson['lesson_name']; ?></td>
       <td><?php echo $row_get_lesson['lesson_order']; ?></td>
-      <td><?php echo $row_get_lesson['lesson_type']; ?></td>
-      <td><?php echo $row_get_lesson['lesson_state']; ?></td>
+      <td align="center">
+	  <?php if($row_get_lesson['lesson_type']==1){
+		  		echo $ecss_lang['Subject']['Lesson']['LESSON_TYPE_1'];
+			}else{
+			  echo $ecss_lang['Subject']['Lesson']['LESSON_TYPE_0'];} ?>
+      </td>
+      <td align="center">
+	  <?php if($row_get_lesson['lesson_state']==1){
+		  		echo '<li class="fa fa-check-circle-o btn btn-success"></li>';
+		  }else{
+				echo '<li class="fa fa-ban btn btn-danger"></li>';} ?>
+      </td>
       <td><?php echo $row_get_lesson['lesson_created_by']; ?></td>
       <td><?php echo $row_get_lesson['lesson_created_date']; ?></td>
       <td align="center">

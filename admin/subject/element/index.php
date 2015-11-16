@@ -1,4 +1,4 @@
-<?php require_once('../../../Connections/dares_conn.php'); ?>
+<?php require_once('../../../config/boot.php'); ?>
 <?php
 if (!function_exists("GetSQLValueString")) {
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
@@ -41,30 +41,50 @@ $get_all_element = mysql_query($query_get_all_element, $dares_conn) or die(mysql
 $row_get_all_element = mysql_fetch_assoc($get_all_element);
 $totalRows_get_all_element = mysql_num_rows($get_all_element);
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
-</head>
+<?php 
+// html page title
+$pageTitle=$ecss_lang['Subject']['Lesson']['LIST_LESSON'] ;
+// require page header
+require_once $config['base_url'].'/admin/template/includes/header.php';
+?>
+<!-- page content -->
 
-<body>
-<p><a href="create.php?lesid=<?php echo $colname_get_all_element;?>">New</a></p>
-<table border="1">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <div class="x_panel" style="min-height:600px;">
+        <div class="x_title">
+          <h2><?php echo $ecss_lang['Subject']['Element']['LIST_ELEMENT'] ?></h2>
+           <div class="clearfix"></div>
+         </div>
+         <div class="row">
+           <div class="col-md-12">
+             <a href="create.php?lesid=<?php echo $_GET['lesid'];?>" class="btn btn-primary pull-left">
+               <i class="fa fa-plus"></i> <?php echo $ecss_lang['ADD_NEW'] ?>
+             </a>
+           </div>
+         </div>
+          <div class="x_content">
+
+<!--<p><a href="create.php?lesid=<?php echo $colname_get_all_element;?>">New</a></p> -->
+<table class="table table-striped responsive-utilities table-bordered jambo_table bulk_action">
+  <thead>
   <tr>
-    <td>element_id</td>
-    <td>element_title</td>
-    <td>element_lesson_id</td>
-    <td>element_order</td>
-    <td>element_type</td>
-    <td>element_value</td>
-    <td>element_created_by</td>
-    <td>element_created_date</td>
-    <td>edit</td>
-    <td>delete</td>
+    <td align="center"><input type="checkbox" class='flat' id='check-all'></td>
+    <td><?php echo $ecss_lang['ID'] ?></td>
+    <td><?php echo $ecss_lang['Subject']['Element']['ELEMENT_NAME']; ?></td>
+    <td><?php echo $ecss_lang['Subject']['Element']['ELEMENT_LESSON_VALUE']; ?></td>
+    <td><?php echo $ecss_lang['ORDER'] ?></td>
+    <td><?php echo $ecss_lang['TYPE'] ?></td>
+    <td><?php echo $ecss_lang['Subject']['Element']['ELEMENT_VALUE']; ?></td>
+    <td><?php echo $ecss_lang['CREATED_BY']; ?></td>
+    <td><?php echo $ecss_lang['CREATED_DATE']; ?></td>
+    <td><?php echo $ecss_lang['EDIT']; ?></td>
+    <td><?php echo $ecss_lang['DELETE']; ?></td>
   </tr>
+</thead>
+<tbody>
   <?php do { ?>
     <tr>
+      <td align="center"><input type="checkbox" name='table_records[]' class='flat'></td>
       <td><?php echo $row_get_all_element['element_id']; ?></td>
       <td><?php echo $row_get_all_element['element_title']; ?></td>
       <td><?php echo $row_get_all_element['element_lesson_id']; ?></td>
@@ -73,13 +93,29 @@ $totalRows_get_all_element = mysql_num_rows($get_all_element);
       <td><?php echo $row_get_all_element['element_value']; ?></td>
       <td><?php echo $row_get_all_element['element_created_by']; ?></td>
       <td><?php echo $row_get_all_element['element_created_date']; ?></td>
-      <td><a href="edit.php?elemid=<?php echo $row_get_all_element['element_id']; ?>&lesid=<?php echo $row_get_all_element['element_lesson_id']; ?>">edit</a></td>
-      <td><a href="delete.php?elemid=<?php echo $row_get_all_element['element_id']; ?>&lesid=<?php echo $row_get_all_element['element_lesson_id']; ?>">delete</a></td>
+      <td>
+        <a href="edit.php?elemid=<?php echo $row_get_all_element['element_id']; ?>&lesid=<?php echo $row_get_all_element['element_lesson_id']; ?>" class='btn btn-success btn-xs'>
+          <i class="fa fa-edit"></i>
+          <?php echo $ecss_lang['EDIT']; ?>
+        </a>
+      </td>
+      <td>
+        <a href="delete.php?elemid=<?php echo $row_get_all_element['element_id']; ?>&lesid=<?php echo $row_get_all_element['element_lesson_id']; ?>" class='btn btn-danger btn-xs'>
+          <i class="fa fa-trash"></i>
+      <?php echo $ecss_lang['DELETE']; ?>
+        </a>
+      </td>
     </tr>
-    <?php } while ($row_get_all_element = mysql_fetch_assoc($get_all_element)); ?>
+    <?php }while ($row_get_all_element = mysql_fetch_assoc($get_all_element)); ?>
+    </tbody>
 </table>
-</body>
-</html>
+</div>
+</div>
+<script src="<?php echo $config['http_base_url'] ?>admin/template/js/validator/validator.js"></script>
+<script src="<?php echo $config['http_base_url'] ?>admin/template/js/icheck/icheck.min.js"></script>
+
+<?php require_once $config['base_url'].'/admin/template/includes/footer.php'; ?>
 <?php
 mysql_free_result($get_all_element);
 ?>
+
