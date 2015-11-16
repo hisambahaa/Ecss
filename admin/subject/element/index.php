@@ -57,7 +57,7 @@ require_once $config['base_url'].'/admin/template/includes/header.php';
          </div>
          <div class="row">
            <div class="col-md-12">
-             <a href="create.php?lesid=<?php echo $colname_get_all_element;?>" class="btn btn-primary pull-left">
+             <a href="create.php?lesid=<?php echo $_GET['lesid'];?>" class="btn btn-primary pull-left">
                <i class="fa fa-plus"></i> <?php echo $ecss_lang['ADD_NEW'] ?>
              </a>
            </div>

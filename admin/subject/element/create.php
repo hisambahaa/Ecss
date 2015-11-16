@@ -52,7 +52,7 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form1")) {
   $insertGoTo = "index.php";
   if (isset($_SERVER['QUERY_STRING'])) {
     $insertGoTo .= (strpos($insertGoTo, '?')) ? "&" : "?";
-    $insertGoTo .= $_SERVER['QUERY_STRING'];
+    $insertGoTo .= $_SERVER['QUERY_STRING'].'lesid='.$_POST['element_lesson_id'];
   }
   header(sprintf("Location: %s", $insertGoTo));
 }
@@ -114,14 +114,16 @@ require_once $config['base_url'].'/admin/template/includes/header.php';
       <div class="ln_solid"></div>
    <div class="form-group">
             <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
-                
+                <a href='index.php?lesid=<?php echo $_GET['lesid']; ?>' class="btn btn-default pull-left">
+                  <i class="fa fa-close"></i> <?php echo $ecss_lang['CANCEL'] ?>
+                </a>
                 <button type="submit" class="btn btn-success pull-left">
                 <i class="fa fa-save"></i> <?php echo $ecss_lang['SUBMIT'] ?>
                 </button>
             </div>
         </div>
   <input type="hidden" name="element_lesson_id" value="<?php echo $_GET['lesid']; ?>" />
-  <input type="hidden" name="element_created_by" value="<?php 1//$_SESSION['User_id']; ?>" />
+  <input type="hidden" name="element_created_by" value="<?php echo $_SESSION['User_id']; ?>" />
   <input type="hidden" name="MM_insert" value="form1" />
 </form>
 <p>&nbsp;</p>
